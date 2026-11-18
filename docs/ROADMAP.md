@@ -15,7 +15,7 @@ inspectable parameters.
 
 That boundary is deliberate:
 
-- A 594B/17B MoE can learn taste from 32 examples. It cannot learn to encode video.
+- A 594B/17B MoE can learn taste from 31 examples. It cannot learn to encode video.
 - Selection is the part that needs judgment. Cutting is the part that needs to be exact.
 - If selection is wrong, the render is wrong in a way you can see in the picks list. If
   cutting were learned too, a bad render would be un-diagnosable.
@@ -91,19 +91,19 @@ Three rules that matter more than the schema:
 1. **The index is content-addressed.** Derived files are keyed by a hash of the source, so
    re-downloading or re-running Whisper never silently changes training data under a run.
 2. **Rejects are data.** A rejected pick with a reason ("cuts mid-sentence", "logo
-   unreadable", "too dark") is the most valuable label you have, and the current 32-row
+   unreadable", "too dark") is the most valuable label you have, and the current 31-row
    set has none. Even 20 rejects would let a future run learn a boundary instead of only a
    preference.
 3. **Split by source file, not by row.** See the next section.
 
 ## The split problem — a known weakness
 
-`prepare.py` holds out every fourth **clip**. With 26 source files and 32 rows, the same
+`prepare.py` holds out every fourth **clip**. With 25 source files and 31 rows, the same
 file can appear in both train and held-out. A model can then memorize a file's look and
 score well without generalizing.
 
-The fix is to hold out **source files**, not clips. It is not done yet because 26 files
-across 32 rows would leave about 6 files, and the held-out set would be too small to
+The fix is to hold out **source files**, not clips. It is not done yet because 25 files
+across 31 rows would leave about 6 files, and the held-out set would be too small to
 score meaningfully. This is the strongest argument for more footage, ahead of more labels.
 
 ## Phases

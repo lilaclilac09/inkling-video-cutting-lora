@@ -34,7 +34,7 @@ The v1 run asked for "3 clips of 30–90 s" while every training row was one cli
 
 ## The data
 
-`data/picks.jsonl` — 32 approved picks from the Cafe Cursor Shanghai footage. Provenance
+`data/picks.jsonl` — 31 approved picks from the Cafe Cursor Shanghai footage. Provenance
 and gaps are in `DATA_CARD.md`. Rules:
 
 - Never train on a held-out row.
@@ -87,7 +87,7 @@ under the gate is a regression, not a win.
 
 ## Budget
 
-Tinker charges per million training tokens. Inkling 2 Small is $1.50/M train. A 32-row run
+Tinker charges per million training tokens. Inkling 2 Small is $1.50/M train. A 31-row run
 of ~2000 tokens is a fraction of a cent; 200 steps is still small. The real cost is your
 time per experiment. Cap a sweep at **10 experiments**, then report.
 

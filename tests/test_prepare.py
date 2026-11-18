@@ -162,7 +162,7 @@ def test_split_is_deterministic_disjoint_and_complete():
     assert (train, held_out) == prepare.split(rows)
     assert {r.clip_key for r in train}.isdisjoint({r.clip_key for r in held_out})
     assert len(train) + len(held_out) == len(rows)
-    assert len(held_out) == len({r.clip_key for r in rows}) // 4
+    assert len(held_out) == -(-len({r.clip_key for r in rows}) // 4)
 
 
 # ── the ledger ratchet ──────────────────────────────────────────────────────

@@ -26,7 +26,7 @@ could go up without the model getting better.
 
 ```bash
 uv sync                                    # harness only, no Tinker needed
-uv run pytest                              # 34 tests: contract, scoring, split, ratchet
+uv run pytest                              # tests: contract, scoring, split, ratchet
 uv run python prepare.py --audit           # data report
 uv run python prepare.py --split           # the 8 held-out rows
 uv run python prepare.py --self-check      # score the references; must print 1.0
@@ -84,7 +84,7 @@ the rows it did get right is noise.
   predates this harness, and its own log shows 0 of 2 answers matching the schema.
 - **v2 harness** is in place and verified with a stub model. No real Inkling run has been
   scored yet — that is the next step, and it needs a Tinker key on the machine doing it.
-- **Data** is now 32 rows, the union of the old 27 plus the 5 afternoon moments that
+- **Data** is now 31 rows, the union of the old 27 plus the 4 afternoon moments that
   existed only in the sibling repo. See [`DATA_CARD.md`](DATA_CARD.md).
 
 ## Layout
@@ -94,7 +94,7 @@ prepare.py              fixed: contract, data, split, eval, ledger
 train.py                experiment target: hyperparameters + Tinker SFT
 program.md              research protocol
 results.tsv             run ledger
-data/picks.jsonl        32 approved picks
+data/picks.jsonl        31 approved picks
 tests/test_prepare.py   contract, scoring, split, ratchet tests
 docs/ROADMAP.md         Drive link in, styled video out
 lora-training-run.log   the v1 run, kept as history

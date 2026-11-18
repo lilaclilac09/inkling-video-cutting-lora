@@ -30,14 +30,14 @@ footage does not belong in this file, at any `synthetic` value.
 
 ## Provenance
 
-This file is the 32-row union of two earlier files:
+This file is the 31-row union of two earlier files:
 
 - `inkling-video-picks-27.jsonl` — the v1 training set, 27 rows
 - `inkling-video-picks-full.jsonl` from the sibling repo `inkling-2-small-video-editing` —
-  the same 27 rows plus 5 afternoon rows: guitar, piano, a piece written for his
-  girlfriend, the rain arriving, and the group photo
+  the same 27 rows plus 4 afternoon rows: guitar, piano, the rain arriving, and the group
+  photo
 
-Those 5 were recorded in the v1 README as "known gaps, not in this run". They were not
+Those 4 were recorded in the v1 README as "known gaps, not in this run". They were not
 missing from the project, only from the 27-row file. The union is now the single source of
 truth; the two older files are gone so there is no second version to train on by mistake.
 
@@ -45,15 +45,15 @@ truth; the two older files are gone so there is no second version to train on by
 
 | | |
 |---|---:|
-| rows | 32 |
-| synthetic | 15 |
-| rows with a transcript | 11 |
-| distinct source files | 26 |
+| rows | 31 |
+| synthetic | 14 |
+| rows with a transcript | 10 |
+| distinct source files | 25 |
 | duplicate clip keys | 0 |
-| clip length, min / mean / max | 3 s / 7.25 s / 12 s |
-| tags | 50 |
+| clip length, min / mean / max | 3 s / 7.26 s / 12 s |
+| tags | 49 |
 | time nodes | afternoon, morning |
-| train / held out | 24 / 8 |
+| train / held out | 23 / 8 |
 
 Twenty-one rows have an empty transcript because the footage has no speech: drone
 establishing shots, timelapses, close-ups of hands and screens. For those the model has
