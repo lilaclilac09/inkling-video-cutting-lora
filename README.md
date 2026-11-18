@@ -1,57 +1,101 @@
 # Inkling Video Cutting LoRA
 
-LoRA fine-tune of [Thinking Machines](https://thinkingmachines.ai) **Inkling 2 Small**
-for cutting tech-meetup videos into shareable clips. Built for the
-[Cafe Cursor Shanghai](https://luma.com/nthhqbbg) recap (July 19, 2026).
+A LoRA fine-tune of [Thinking Machines](https://thinkingmachines.ai) **Inkling 2 Small**
+that turns a transcript excerpt plus keyframes into **one** shareable clip pick, in a
+shape a cutter script can consume without a human fixing the JSON.
 
-The base model rambles when asked to pick clips. After this fine-tune it answers
-with a clean JSON clip pick: `file`, `start`, `end`, `title`, `reason`.
+Built on the Cafe Cursor Shanghai footage. The long-term shape of the project — a Drive
+link in, a styled video out — is in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
-## Checkpoint
+## The three files
 
-- **Name:** `inkling-video-cutting-v1` (Tinker)
-- **Base model:** `thinkingmachines/Inkling-2-Small`
-- **Try it:** [Tinker Playground](https://tinker.thinkingmachines.ai/playground?mode=checkpoint&checkpoint=tinker%3A%2F%2Fd26e013b-64d9-5c5f-9b7d-713a2fc54286%3Atrain%3A0%2Fsampler_weights%2Finkling-video-cutting-v1&reasoning_effort=none)
+This repo follows the same architecture as [`autoresearch-course`](https://github.com/lilaclilac09/autoresearch-course):
+a fixed instrument, an editable target, and a written protocol.
 
-## Training
+| file | role | editable? |
+|---|---|---|
+| `prepare.py` | contract, data, deterministic split, eval, ledger | **never** |
+| `train.py` | hyperparameters and the training body | the research loop edits this |
+| `program.md` | the research protocol: loop rules, gate, budget | with approval |
+| `results.tsv` | the experiment ledger, written by `train.py` | never by hand |
 
-- **Method:** SFT with LoRA, rank 16, 10 steps, lr 2e-4. Loss only on answer tokens.
-- **Data:** `inkling-video-picks-27.jsonl` — 27 approved picks (17 real + 10 synthetic),
-  each with transcript excerpt, keyframes, and Inkling's clip pick.
-- **Result (2026-11-17):** loss 2.2364 → 0.1749 over 10 steps.
+The eval is pinned because it is the measuring instrument. If a run could edit it, a score
+could go up without the model getting better.
+
+## Quick start
 
 ```bash
-cd ~/tinker-first-session
-INKLING_PICKS_PATH=inkling-video-picks-27.jsonl uv run inkling-video-sft.py
+uv sync                                    # harness only, no Tinker needed
+uv run pytest                              # tests: contract, scoring, split, ratchet
+uv run python prepare.py --audit           # data report
+uv run python prepare.py --split           # the 8 held-out rows
+uv run python prepare.py --self-check      # score the references; must print 1.0
+uv run python train.py --dry-run           # whole loop, stub model, no spend
 ```
 
-Requires `tinker auth login` (a real `tml-` API key). Runs on the machine that
-holds the key — the Tinker Python SDK validates the key prefix, so a stored
-surrogate credential cannot drive training.
+Real training:
 
-## Before / after
+```bash
+uv sync --extra train
+tinker auth login          # or export TINKER_API_KEY
+uv run python train.py --run-id exp1 --note "rank 16, 40 steps, lr 2e-4"
+```
 
-Prompt: *"[14:02:11] someone sits at the piano and plays a short tune.
-[14:02:40] the room goes quiet, then applauds. Pick the clip."*
+## The contract
 
-- **Before:** a long paragraph hedging about missing options, no clip picked.
-- **After:** `{"file": "0:02", "start": "0:02", "end": "0:06", "label": "a person plays piano and the room applauds"}`
+One clip per answer. JSON only.
 
-## Known gaps
+```json
+{
+  "file": "DJI_20260719103816_0051_D.MP4",
+  "start": "0:03",
+  "end": "0:15",
+  "title": "The room erupts — open on the laugh",
+  "reason": "The warmest twelve seconds of the morning..."
+}
+```
 
-Five afternoon moments are **not** in this run — their source clips had not
-reached Drive yet, so their rows are placeholders and were excluded on purpose:
-guitar, piano, a piece written for his girlfriend, rain, group photo. They go
-into a second run once the afternoon footage is verified. Do not re-add them
-from memory.
+- `file` must be one of the source files named in the prompt's keyframes.
+- `start` / `end` are `M:SS`, `end` after `start`, clip length 3–20 s.
+- `title` under 60 characters, `reason` one sentence.
 
-## Files
+v1 asked for "3 clips of 30–90 s" while every training row was one clip of 3–12 s. That
+contradiction is why v1's answers came back as `{"label": ...}` with a timestamp in
+`file`. The contract now matches the data.
 
-- `inkling-video-sft.py` — training script (adapted from Tinker's `first-training.py`)
-- `inkling-video-picks-27.jsonl` — training data (27 rows, zero placeholders)
-- `lora-training-run.log` — full log of the 2026-11-17 run (loss per step + before/after)
+## Scoring
 
-## Related
+Each held-out answer scores:
 
-- Video project (recap v10, picks, captions): [inkling-2-small-video-editing](https://github.com/lilaclilac09/inkling-2-small-video-editing)
-- Base model write-up: [Tinker end-to-end 4-bit training](https://thinkingmachines.ai/blog/end-to-end-4-bit-training/)
+| outcome | score |
+|---|---:|
+| not valid JSON, or breaks the contract | 0 |
+| valid, wrong source file | 0.25 |
+| valid, right file, temporal IoU *i* | 0.25 + 0.75 × *i* |
+
+A run is **kept** only if `schema_valid_rate ≥ 0.9` **and** `mean_score` beats the best
+kept run in `results.tsv`. Below the gate the model cannot be shipped, so a high score on
+the rows it did get right is noise.
+
+## Current state
+
+- **v1** (`lora-training-run.log`, checkpoint `inkling-video-cutting-v1`) trained 10 steps
+  on 27 rows and dropped train loss 2.2364 → 0.1749. It has **no comparable score**: it
+  predates this harness, and its own log shows 0 of 2 answers matching the schema.
+- **v2 harness** is in place and verified with a stub model. No real Inkling run has been
+  scored yet — that is the next step, and it needs a Tinker key on the machine doing it.
+- **Data** is now 31 rows, the union of the old 27 plus the 4 afternoon moments that
+  existed only in the sibling repo. See [`DATA_CARD.md`](DATA_CARD.md).
+
+## Layout
+
+```
+prepare.py              fixed: contract, data, split, eval, ledger
+train.py                experiment target: hyperparameters + Tinker SFT
+program.md              research protocol
+results.tsv             run ledger
+data/picks.jsonl        31 approved picks
+tests/test_prepare.py   contract, scoring, split, ratchet tests
+docs/ROADMAP.md         Drive link in, styled video out
+lora-training-run.log   the v1 run, kept as history
+```
