@@ -115,8 +115,10 @@ def score_item(item, text):
         # position-dependent (the same pick sits at different letters when
         # options are shuffled across reps), so pair agreement must compare
         # clips, not letters. Without this, a letter-answering model that
-        # picks correctly in both reps scores agree=0.
-        if clip is None and letter and letter != "NONE":
+        # picks correctly in both reps scores agree=0. Guarded: callers
+        # that score without a prompt (e.g. the GRPO loop) simply skip
+        # resolution — the letter itself is still scored above.
+        if clip is None and letter and letter != "NONE" and item.get("prompt"):
             m = re.search(
                 rf"(?m)^{re.escape(letter)}\. (\S+\.MP4) (\d+:\d+(?:\.\d+)?)-(\d+:\d+(?:\.\d+)?):",
                 item["prompt"],
