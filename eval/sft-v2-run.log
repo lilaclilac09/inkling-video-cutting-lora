@@ -1,0 +1,40 @@
+Tinker credential loaded (surrogate, prefix hsurr:).
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[transformers] You are using a model of type `inkling2` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+Training examples: 27
+By time node: {'morning': 26, 'afternoon': 1}
+Priority moments covered: ['agents', 'ai-mi', 'ai-tools', 'ariava', 'audience', 'audience-points', 'banner', 'behind-the-scenes', 'close-up', 'closing', 'code', 'coffee', 'demo', 'detail', 'exterior', 'follow-up', 'hands', 'hook', 'hosts', 'laughter', 'lean-in', 'listener', 'live-demo', 'logo', 'opening', 'peak', 'person-close-up', 'phone-app', 'qa', 'room', 'room-laugh', 'room-lean-in', 'setup', 'showcase monologue', 'sign-off', 'storefront', 'talk', 'thumbs-up', 'timelapse', 'volunteers', 'website', 'wide', 'woman-presenter']
+Priority moments missing: ['guitar', 'girlfriend', 'piano', 'rain', 'group photo']
+Rough size: ~2206 tokens
+Step  0: loss = 2.2030
+Step  1: loss = 1.8391
+Step  2: loss = 1.3942
+Step  3: loss = 1.1026
+Step  4: loss = 0.9464
+Step  5: loss = 0.7828
+Step  6: loss = 0.6193
+Step  7: loss = 0.4456
+Step  8: loss = 0.2979
+Step  9: loss = 0.1669
+
+STATE_PATH=tinker://0059270a-eeab-5add-bf67-b9f39ee0a5cb:train:0/weights/inkling-video-cutting-v2-state
+SAMPLER_PATH=tinker://0059270a-eeab-5add-bf67-b9f39ee0a5cb:train:0/sampler_weights/inkling-video-cutting-v2
+
+Try it in the Playground: https://tinker.thinkingmachines.ai/playground?mode=checkpoint&checkpoint=tinker%3A%2F%2F0059270a-eeab-5add-bf67-b9f39ee0a5cb%3Atrain%3A0%2Fsampler_weights%2Finkling-video-cutting-v2&reasoning_effort=none
+
+Q: Transcript excerpt: [14:02:11] someone sits at the piano and plays a short tune. [14:02:40] the room goes quiet, then applauds. Pick the clip.
+Before: The user gives a transcript excerpt with timestamps and asks "Pick the clip." This seems like a video/audio clip selection task. We don't have actual clips or options. Need infer? Perhaps they expect answer based on transcript: choose clip showing someone at piano playing short tune then applause. We need respond with best matching description, maybe "the piano performance followed by applause". We need be honest if no options provided. Since task likely from benchmark where answer is one of options omitted? We should answer concisely: the clip with a pianist playing a short tune and room applauding (roughly 14:02:11–14:02:40). Avoid claiming exact file. Maybe say "Pick the clip showing a person at a piano playing a brief melody, followed by the room going quiet and applauding." Need final only. Ensure not too verbose.Pick the clip showing someone at a piano playing a short tune, followed by the room going quiet and then applauding — roughly the 14:02:11–14:02:40 segment.
+After:  {"file": "0-A.mp4", "start": "0:10", "end": "0:18"}
+
+Q: Transcript excerpt: [10:15:00] a guest stands up and explains the tool she built for her neighbours. [10:17:30] someone in the room asks how it handles rainy days. Pick the clip.
+Before: The user provides a transcript excerpt and asks "Pick the clip." This seems like a task where they expect me to choose a clip based on timestamps? We need infer. There is no list of clips provided. Need answer likely the clip from 10:15:00 to 10:17:30? Let's parse: Transcript excerpt: [10:15:00] a guest stands up and explains the tool she built for her neighbours. [10:17:30] someone in the room asks how it handles rainy days. Pick the clip.
+
+Maybe this is from some benchmark for video clip selection? They want which clip to pick given transcript. We only have excerpt, no options. Need produce a reasonable answer: choose the segment starting at 10:15:00 (guest explains tool) through just before 10:17:30 question, or perhaps the clip that includes both? Need infer intent.
+
+The phrasing "Pick the clip" suggests there are candidate clips maybe implicit? They ask to pick based on transcript. Could be a highlight/clip selection task: given transcript excerpt, pick the clip (maybe among timestamps). We need answer with timestamp range. We should not hallucinate options. We can say the best clip is 10:15:00–10:17:30, capturing the guest explaining the neighbor-built tool; if the goal is the Q&A/rainy-day moment, extend slightly past 10:17:30. But user likely wants a single pick.
+
+Need be clear about uncertainty due to missing options. But maybe expected concise output: "[10:15:00]–[10:17:30]". Let's craft concise with rationale. Since asks pick the clip, answer: the clip covering the guest’s explanation, roughly 10:15:00 to 10:17:30 (include a beat after the rainy-day question if you want the payoff). Need maybe mention if selecting a single moment: 10:15:00.
+
+Let's formulate with minimal detail.Pick the **10:15:00–10:17:30** clip — the guest explaining the tool she built for her neighbours, ending right as the rainy-day question begins. If you want the audience reaction/payoff, extend it a bit past **10:17:30**.
+After:  {"file": "0:15", "start": "0:14", "end": "0:22", "title": "Woman demos her tool", "reason": "A guest stands and demos the tool she built for her neighbours; the clip runs from her standing through the rainy-day question."}
+EXIT=0
