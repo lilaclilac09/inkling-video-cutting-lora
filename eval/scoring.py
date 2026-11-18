@@ -111,6 +111,18 @@ def score_item(item, text):
         out["by_letter"] = by_letter
         out["by_clip"] = by_clip
         out["pred_clip"] = clip
+        # Resolve a letter answer to its option's clip. Letters are
+        # position-dependent (the same pick sits at different letters when
+        # options are shuffled across reps), so pair agreement must compare
+        # clips, not letters. Without this, a letter-answering model that
+        # picks correctly in both reps scores agree=0.
+        if clip is None and letter and letter != "NONE":
+            m = re.search(
+                rf"(?m)^{re.escape(letter)}\. (\S+\.MP4) (\d+:\d+(?:\.\d+)?)-(\d+:\d+(?:\.\d+)?):",
+                item["prompt"],
+            )
+            if m:
+                out["pred_clip"] = {"file": m.group(1), "start": m.group(2), "end": m.group(3)}
         out["empty"] = 1 if not text.strip() else 0
         out["correct"] = 1 if (by_letter == 1 or by_clip == 1) else 0
     elif fmt == "trap":
