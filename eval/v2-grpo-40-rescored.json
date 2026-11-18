@@ -1,0 +1,700 @@
+[
+  {
+    "id": "mc-01",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-02",
+    "format": "mc",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-03",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719095456_0027_D.MP4\", \"start\": \"0:02\", \"end\": \"0:08\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719095456_0027_D.MP4",
+      "start": "0:02",
+      "end": "0:08"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-04",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:11\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101632_0047_D.MP4",
+      "start": "0:05",
+      "end": "0:11"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-05",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:08",
+      "end": "0:15"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-06",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719092043_0007_D.MP4\", \"start\": \"0:00\", \"end\": \"0:04\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719092043_0007_D.MP4",
+      "start": "0:00",
+      "end": "0:04"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-07",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:24\", \"end\": \"0:32\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084244_0041_D.MP4",
+      "start": "0:24",
+      "end": "0:32"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-08",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-09",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719091529_0043_D.MP4\", \"start\": \"0:18\", \"end\": \"0:24\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719091529_0043_D.MP4",
+      "start": "0:18",
+      "end": "0:24"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-10",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:25\", \"end\": \"0:32\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103442_0049_D.MP4",
+      "start": "0:25",
+      "end": "0:32"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-11",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:01\", \"end\": \"0:06\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719104432_0054_D.MP4",
+      "start": "0:01",
+      "end": "0:06"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "trap-01",
+    "format": "trap",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:07\", \"end\": \"0:13\"}",
+    "letter": null,
+    "hallucinated_clip": 1,
+    "correct": 0
+  },
+  {
+    "id": "trap-02",
+    "format": "trap",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:07\", \"end\": \"0:13\"}",
+    "letter": null,
+    "hallucinated_clip": 1,
+    "correct": 0
+  },
+  {
+    "id": "trap-03",
+    "format": "trap",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:07\", \"end\": \"0:13\"}",
+    "letter": null,
+    "hallucinated_clip": 1,
+    "correct": 0
+  },
+  {
+    "id": "trap-04",
+    "format": "trap",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:07\", \"end\": \"0:13\"}",
+    "letter": null,
+    "hallucinated_clip": 1,
+    "correct": 0
+  },
+  {
+    "id": "sft-01",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:00\", \"end\": \"0:05\", \"title\": \"Talk L: Pairoa\", \"reason\": \"Type 3 interior close-up of the Pairoa presenter (blue tee, glasses) with the Pairoa landing page legible behind him; the AI-native-tools thread made visual.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.571,
+    "near_miss": 1,
+    "correct": 0
+  },
+  {
+    "id": "sft-02",
+    "format": "sft",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:08\", \"end\": \"0:16\", \"title\": \"Talk L: the room laughs\", \"reason\": \"Type 3 interior ultra-wide of the whole room laughing together at the ARIAVA QR-code demo; the emotional peak of the morning footage, saved tight for the climax.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.6,
+    "near_miss": 1,
+    "correct": 0
+  },
+  {
+    "id": "sft-03",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719095456_0027_D.MP4\", \"start\": \"0:00\", \"end\": \"0:06\", \"title\": \"Talk L: Pairoa\", \"reason\": \"Type 3 interior wide of the Pairoa AI-pair-programming demo; the screen shows a real product UI (blue landing page), not a title card, and the audience is visibly smiling and engaged. A product demo with a readable screen and a warm room — exactly the demo-plus-reaction shape to keep.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.5,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-04",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:24\", \"title\": \"Talk M: the room laughs\", \"reason\": \"Type 3 interior close-up of the woman in white with the mic; the whole room is laughing with her, the clearest audience-response beat of the morning. Cut on the laugh, not mid-sentence.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.316,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-05",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:14\", \"title\": \"Talk L: Pairoa\", \"reason\": \"Type 3 interior close-up of a woman presenter with the Pairoa blue landing page behind her; she is demoing the product live, the clearest demo moment of the morning footage.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.857,
+    "near_miss": 1,
+    "correct": 0
+  },
+  {
+    "id": "sft-06",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719092043_0007_D.MP4\", \"start\": \"0:00\", \"end\": \"0:04\", \"title\": \"Talk L: Pairoa\", \"reason\": \"Type 3 interior close-up of a woman presenter with the Pairoa blue landing page behind her; she gestures as she explains the product, a natural demo close-up.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 1.0,
+    "near_miss": 1,
+    "correct": 1
+  },
+  {
+    "id": "sft-07",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:05\", \"end\": \"0:13\", \"title\": \"Talk L: the room laughs\", \"reason\": \"Type 3 interior ultra-wide of the whole room laughing together during the L talk; the emotional peak of the morning footage, saved tight for the climax.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.0,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-08",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:03\", \"end\": \"0:09\", \"title\": \"Talk M: the room laughs\", \"reason\": \"Type 3 interior ultra-wide of the teal-shirt M presenter with the whole room laughing; the clearest audience-response beat of the morning, saved tight for the climax.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.0,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-09",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719091529_0043_D.MP4\", \"start\": \"0:14\", \"end\": \"0:22\", \"title\": \"Talk L: Pairoa\", \"reason\": \"Type 3 interior close-up of the Pairoa presenter with the product name legible on screen; attentive room, a product demo moment worth keeping.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.4,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-10",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:04\", \"end\": \"0:09\", \"title\": \"Talk L: room leans in\", \"reason\": \"Type 3 interior close-up of the woman in white with the code-editor screen behind her; the audience leans in with a Q&A posture, the clearest question-and-follow-up feel of the morning.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.0,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-11",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:00\", \"end\": \"0:05\", \"title\": \"Talk M: room leans in\", \"reason\": \"Type 3 interior close-up of the man in the dark tee and cap; the whole room leans in with a Q&A posture, setting up the follow-up beat.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.667,
+    "near_miss": 1,
+    "correct": 0
+  },
+  {
+    "id": "style-1-fresh",
+    "format": "style-mc",
+    "style": "fresh",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14"
+    },
+    "empty": 0,
+    "correct": 0
+  },
+  {
+    "id": "style-1-silicon-valley",
+    "format": "style-mc",
+    "style": "silicon-valley",
+    "raw": "{\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:11\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101632_0047_D.MP4",
+      "start": "0:05",
+      "end": "0:11"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-1-glamour",
+    "format": "style-mc",
+    "style": "glamour",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14"
+    },
+    "empty": 0,
+    "correct": 0
+  },
+  {
+    "id": "style-1-hollywood",
+    "format": "style-mc",
+    "style": "hollywood",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-2-fresh",
+    "format": "style-mc",
+    "style": "fresh",
+    "raw": "{\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:01\", \"end\": \"0:06\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719104432_0054_D.MP4",
+      "start": "0:01",
+      "end": "0:06"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-2-silicon-valley",
+    "format": "style-mc",
+    "style": "silicon-valley",
+    "raw": "{\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:25\", \"end\": \"0:32\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103442_0049_D.MP4",
+      "start": "0:25",
+      "end": "0:32"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-2-glamour",
+    "format": "style-mc",
+    "style": "glamour",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-2-hollywood",
+    "format": "style-mc",
+    "style": "hollywood",
+    "raw": "{\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:25\", \"end\": \"0:32\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "DJI_20260719103442_0049_D.MP4",
+      "start": "0:25",
+      "end": "0:32"
+    },
+    "empty": 0,
+    "correct": 0
+  },
+  {
+    "id": "style-3-fresh",
+    "format": "style-mc",
+    "style": "fresh",
+    "raw": "{\"file\": \"DJI_20260719095456_0027_D.MP4\", \"start\": \"0:08\", \"end\": \"0:14\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719095456_0027_D.MP4",
+      "start": "0:08",
+      "end": "0:14"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-3-silicon-valley",
+    "format": "style-mc",
+    "style": "silicon-valley",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:15\", \"end\": \"0:21\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:15",
+      "end": "0:21"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-3-glamour",
+    "format": "style-mc",
+    "style": "glamour",
+    "raw": "{\"file\": \"DJI_20260719104626_0056_D.MP4\", \"start\": \"0:00\", \"end\": \"0:06\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719104626_0056_D.MP4",
+      "start": "0:00",
+      "end": "0:06"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-3-hollywood",
+    "format": "style-mc",
+    "style": "hollywood",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:18\", \"end\": \"0:24\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:18",
+      "end": "0:24"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-4-fresh",
+    "format": "style-mc",
+    "style": "fresh",
+    "raw": "{\"file\": \"DJI_20260719094910_0025_D.MP4\", \"start\": \"0:00\", \"end\": \"0:06\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719094910_0025_D.MP4",
+      "start": "0:00",
+      "end": "0:06"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-4-silicon-valley",
+    "format": "style-mc",
+    "style": "silicon-valley",
+    "raw": "{\"file\": \"DJI_20260719072352_0033_D.MP4\", \"start\": \"0:13\", \"end\": \"0:19\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719072352_0033_D.MP4",
+      "start": "0:13",
+      "end": "0:19"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-4-glamour",
+    "format": "style-mc",
+    "style": "glamour",
+    "raw": "{\"file\": \"DJI_20260719073634_0037_D.MP4\", \"start\": \"0:50\", \"end\": \"0:56\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719073634_0037_D.MP4",
+      "start": "0:50",
+      "end": "0:56"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-4-hollywood",
+    "format": "style-mc",
+    "style": "hollywood",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:14\", \"end\": \"0:20\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:14",
+      "end": "0:20"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-00-1",
+    "format": "stability",
+    "pair": "stab-00",
+    "raw": "{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-00-2",
+    "format": "stability",
+    "pair": "stab-00",
+    "raw": "{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-08-1",
+    "format": "stability",
+    "pair": "stab-08",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:08",
+      "end": "0:15"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-08-2",
+    "format": "stability",
+    "pair": "stab-08",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:08",
+      "end": "0:15"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-12-1",
+    "format": "stability",
+    "pair": "stab-12",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-12-2",
+    "format": "stability",
+    "pair": "stab-12",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "multi-01",
+    "format": "multi",
+    "raw": "[{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\"}, {\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:11\"}, {\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:01\", \"end\": \"0:06\"}]",
+    "parsed_list": 1,
+    "slots_exact": 3,
+    "slots_file": 3,
+    "n_returned": 3,
+    "correct": 1
+  },
+  {
+    "id": "multi-02",
+    "format": "multi",
+    "raw": "[{\"file\": \"DJI_20260719095456_0027_D.MP4\", \"start\": \"0:02\", \"end\": \"0:08\"}, {\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:24\", \"end\": \"0:32\"}, {\"file\": \"DJI_20260719091529_0043_D.MP4\", \"start\": \"0:18\", \"end\": \"0:24\"}]",
+    "parsed_list": 1,
+    "slots_exact": 3,
+    "slots_file": 3,
+    "n_returned": 3,
+    "correct": 1
+  },
+  {
+    "id": "multi-03",
+    "format": "multi",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}",
+    "parsed_list": 0,
+    "slots_exact": 0,
+    "slots_file": 0,
+    "correct": 0
+  },
+  {
+    "id": "multi-04",
+    "format": "multi",
+    "raw": "[{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\"}, {\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:25\", \"end\": \"0:32\"}, {\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:01\", \"end\": \"0:06\"}]",
+    "parsed_list": 1,
+    "slots_exact": 3,
+    "slots_file": 3,
+    "n_returned": 3,
+    "correct": 1
+  }
+]
