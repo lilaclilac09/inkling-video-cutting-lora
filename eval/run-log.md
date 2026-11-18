@@ -43,3 +43,25 @@ Chronological. Baselines, sweeps, costs, decisions. Times in Asia/Shanghai.
   `forward_backward(..., "importance_sampling")`, Adam lr 1e-5, no KL.
   Sampler checkpoints at steps 20/40/60; each scored on eval v2; best wins.
   Hard cap $200 (Suiche reference: 60 GRPO steps, $22).
+
+- **Baseline v2 results** (`v2-baseline-run.log`, exit 0, ~12 min for 3x52
+  items; `v2-base.json`, `v2-v1.json`, `v2-v2.json` + re-scored copies):
+  base 15/52 = 0.29, v1 26/52 = 0.50, **v2 32/52 = 0.61**. Per format
+  (base / v1 / v2): mc 0.18 / 0.82 / 1.00; style-mc 0.50 / 0.56 / 0.62;
+  stability 0.50 / 1.00 / 1.00 (pairs agree 3/3 all); multi 0.50 / 0.00 /
+  0.75; sft exact 0.00 / 0.18 / 0.18; trap 0.00 / 0.00 / 0.00.
+  v2 beats v1 on mc (11/11, 0 empty vs 2) and on multi (3/4 exact — it
+  follows the "JSON list of 3" instruction; v1 falls back to one clip).
+  Same recipe, different init: run-to-run variance is real. Trap refusal
+  is 0.00 everywhere — the main GRPO target. Style headroom 0.62 -> 1.00.
+- **Scorer fix (same night)**: stability agreement compared the whole
+  clip dict including reason text, so v1 scored agree=0 with acc=1.0.
+  Now compares (file, start, end) only. Second fix: saved raw was
+  truncated to 1500 chars, which lost base's late multi answers on
+  re-score (live 0.50 vs re-scored 0.00); raw is now stored whole.
+  Live numbers above are authoritative; the saved base re-score
+  undercounts multi by 2.
+- **Resume probe PASSED** (`probe_resume_v2.py`): training client resumed
+  from the v2 state, on-policy sampler created, sample works with
+  logprobs. GRPO can start. (v1's sampler path cannot resume — verified
+  earlier; v2's state path is the fix.)
