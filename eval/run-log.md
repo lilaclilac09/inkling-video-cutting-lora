@@ -154,6 +154,19 @@ Chronological. Baselines, sweeps, costs, decisions. Times in Asia/Shanghai.
   GRPO now passes the full prompt) and unit-tested; r2 relaunched with
   the same params, seed 456, checkpoint prefix `v3-grpo-r2`. Nothing was
   trained before the crash, so nothing was lost.
-- **GRPO sweep 2 (r2) RUNNING**: from the v3 state, temp 1.0, 39 hard
-  prompts, 60 steps, lr 1e-5, --no-final-state. Checkpoints
-  `v3-grpo-r2-{20,40,60}`; each evaluated, delete unless new best.
+- **GRPO sweep 2 (r2) DONE** (60 steps, exit 0): 757,687 sampled +
+  144,539 trained tokens. Checkpoints: r2-20 = 37/52 (style 0.75),
+  r2-40 = 37/52 (style 0.75), r2-60 = 38/52 (style 0.812). All three
+  below attempt-1's step 20 (39/52, style 0.875) — r2 plateaus, attempt 1
+  stays best. Deleted r2-20/r2-40/r2-60 as dominated (measurements kept
+  in `v2-v3grpo-r2-*.json`). Storage back to 7 checkpoints, 66.91 GB.
+- **FINAL SELECTION (by eval score, never by step count)**: winner is
+  **`inkling-video-cutting-v3-grpo-20`** (sweep 2, attempt 1, step 20):
+  **39/52 = 0.75** — mc 1.00, style-mc 0.875 (fresh 4/4, hollywood 4/4,
+  glamour 3/4, silicon-valley 3/4), stability 1.00 (pairs 3/3), multi
+  1.00, trap 1.00, sft exact 0.00. Sampler:
+  `tinker://422c642a-f8cf-57e0-b94e-575e21fdb8a5:train:0/sampler_weights/inkling-video-cutting-v3-grpo-20`.
+  Full leaderboard + cost + next lever in `../RESULTS-2026-11-18.md`.
+  Remaining gap: exact-window precision in open generation (0.00; file
+  1.00, mean IoU 0.36). Next lever: grade the GRPO reward by window IoU,
+  or an SFT round on exact windows.
