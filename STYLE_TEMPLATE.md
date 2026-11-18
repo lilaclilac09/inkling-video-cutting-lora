@@ -71,7 +71,28 @@ Answer as a JSON list of 3 clips in beat order, e.g. [{"file": "DJI_...MP4", "st
 3. Never train on the eval set. New eval items use held-out picks only.
 4. Select checkpoints by eval score, never by step count.
 
-## Scores (eval set v2, 52 items)
+## Scores (eval set v2, 52 items — baseline 2026-11-18, temp 0, 1 sample)
 
-_TBD — filled in after the v2 baseline run (base vs v1 vs v2)._
-See `eval/README.md` for the set composition and `eval/v2-*.json` for results.
+| Format | Base | v1 (SFT) | v2 (SFT reproduction) |
+|---|---|---|---|
+| mc (11) | 0.18 | 0.82 | **1.00** |
+| style-mc (16) | 0.50 | 0.56 | 0.62 |
+| stability (6) | 0.50 | 1.00 | 1.00 |
+| stability pairs agree | 3/3 | 3/3 | 3/3 |
+| multi (4) | 0.50 | 0.00 | **0.75** |
+| sft exact (11) | 0.00 | 0.18 | 0.18 |
+| trap (4) | 0.00 | 0.00 | 0.00 |
+| **Overall** | **0.29 (15/52)** | **0.50 (26/52)** | **0.61 (32/52)** |
+
+Per-style (style-mc): base fresh 2/4, glamour 3/4, hollywood 1/4, silicon-valley 2/4;
+v1 fresh 2/4, glamour 2/4, hollywood 2/4, silicon-valley 3/4;
+v2 fresh 2/4, glamour 2/4, hollywood 3/4, silicon-valley 3/4.
+
+Notes: v2 (same recipe as v1, different init) beats v1 on mc (11/11, 0 empty
+outputs vs v1's 2) and unexpectedly on multi (3/4 exact — it follows the
+"JSON list of 3" instruction; v1 falls back to a single clip). Trap refusal
+is 0.00 for all three — the main GRPO target. Style headroom remains
+(0.62 vs 1.00). Results: `eval/v2-base.json`, `eval/v2-v1.json`,
+`eval/v2-v2.json` (re-scored copies alongside; the saved base re-score
+undercounts multi by 2 — a raw-truncation artifact in the old scorer,
+fixed in `scoring.py` afterwards; live numbers above are authoritative).
