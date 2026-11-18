@@ -113,9 +113,9 @@ async def main():
         )
     except Exception as e:
         log(f"RESUME_FAILED: {type(e).__name__}: {e}")
-        log("STOP: cannot resume from the v2 state; GRPO cannot start from sampler weights.")
+        log("STOP: cannot resume from the state path; GRPO cannot start from sampler weights.")
         return
-    log("Training client resumed from v2 state.")
+    log("Training client resumed from state.")
 
     rng = random.Random(args.seed)
     order = list(range(len(prompts)))
