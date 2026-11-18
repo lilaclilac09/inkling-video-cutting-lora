@@ -6,7 +6,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -17,7 +21,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -28,7 +36,11 @@
     "letter": "D",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719095456_0027_D.MP4",
+      "start": "0:02",
+      "end": "0:08"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -39,7 +51,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719101632_0047_D.MP4",
+      "start": "0:05",
+      "end": "0:11"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -50,7 +66,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:08",
+      "end": "0:15"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -61,7 +81,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719092043_0007_D.MP4",
+      "start": "0:00",
+      "end": "0:04"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -72,7 +96,11 @@
     "letter": "D",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719084244_0041_D.MP4",
+      "start": "0:24",
+      "end": "0:32"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -83,7 +111,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -94,7 +126,11 @@
     "letter": "D",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719091529_0043_D.MP4",
+      "start": "0:18",
+      "end": "0:24"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -105,7 +141,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719103442_0049_D.MP4",
+      "start": "0:25",
+      "end": "0:32"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -116,7 +156,11 @@
     "letter": "B",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719104432_0054_D.MP4",
+      "start": "0:01",
+      "end": "0:06"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -270,7 +314,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -282,7 +330,11 @@
     "letter": "A",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719101632_0047_D.MP4",
+      "start": "0:05",
+      "end": "0:11"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -294,7 +346,11 @@
     "letter": "B",
     "by_letter": 0,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14"
+    },
     "empty": 0,
     "correct": 0
   },
@@ -306,7 +362,11 @@
     "letter": "B",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -318,7 +378,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719104432_0054_D.MP4",
+      "start": "0:01",
+      "end": "0:06"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -330,7 +394,11 @@
     "letter": "B",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719103442_0049_D.MP4",
+      "start": "0:25",
+      "end": "0:32"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -342,7 +410,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -354,7 +426,11 @@
     "letter": "D",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719091529_0043_D.MP4",
+      "start": "0:18",
+      "end": "0:24"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -366,7 +442,11 @@
     "letter": "D",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719095456_0027_D.MP4",
+      "start": "0:08",
+      "end": "0:14"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -390,7 +470,11 @@
     "letter": "A",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719104626_0056_D.MP4",
+      "start": "0:00",
+      "end": "0:06"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -402,7 +486,11 @@
     "letter": "A",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:18",
+      "end": "0:24"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -414,7 +502,11 @@
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719094910_0025_D.MP4",
+      "start": "0:00",
+      "end": "0:06"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -426,7 +518,11 @@
     "letter": "B",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719072352_0033_D.MP4",
+      "start": "0:13",
+      "end": "0:19"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -438,7 +534,11 @@
     "letter": "A",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719073634_0037_D.MP4",
+      "start": "0:50",
+      "end": "0:56"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -450,7 +550,11 @@
     "letter": "B",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:14",
+      "end": "0:20"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -462,7 +566,11 @@
     "letter": "D",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -474,7 +582,11 @@
     "letter": "D",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -486,7 +598,11 @@
     "letter": "A",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:08",
+      "end": "0:15"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -498,7 +614,11 @@
     "letter": "D",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:08",
+      "end": "0:15"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -510,7 +630,11 @@
     "letter": "D",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36"
+    },
     "empty": 0,
     "correct": 1
   },
@@ -522,7 +646,11 @@
     "letter": "B",
     "by_letter": 1,
     "by_clip": 0,
-    "pred_clip": null,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36"
+    },
     "empty": 0,
     "correct": 1
   },
