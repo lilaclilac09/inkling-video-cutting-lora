@@ -86,10 +86,32 @@ Chronological. Baselines, sweeps, costs, decisions. Times in Asia/Shanghai.
   distractors (other training clips, one per other style for style items)
   + 16 style-traps (4 moments x 4 styles). Temp 1.0 for rollout diversity.
   `run_grpo.py` now takes --prompts / --temperature / --name-prefix.
-- **SFT stage 2 (v3) planned** (`sft-v3-data.jsonl`, 35 rows): GRPO cannot
-  invent refusal, so SFT teaches it directly — 8 refusal rows on moments
-  verified absent but NOT the eval's trap moments (fireworks / a dog on
-  stage / snow / a birthday cake; zero mentions in 1411 shot descriptions,
-  20 picks, 27 rows) in vlog + one other style each, answer "None", plus
-  the 27 original rows as replay. 6 gentle steps (lr 1e-4) from the v2
-  state. Eval then decides whether sweep 2 starts from the v3 state.
+- **GRPO sweep 1 DONE** (60 steps, ~32 min, exit 0): 792,773 sampled +
+  107,056 trained tokens (~900k total — Suiche-scale, far under the $200
+  cap). Rewards drifted 0.5 -> 0.75-1.00; last steps fully degenerate
+  (saturated prompts). Checkpoints: step 20 = 33/52 (style 0.75), step 40
+  = **34/52 (style 0.812)** — best of sweep 1, step 60 = 34/52 (style
+  0.75, sft exact back to 0.18). Trap stayed 0.00 throughout (hallucinated
+  1.00): GRPO cannot invent refusal.
+- **STORAGE LIMIT HIT (2026-11-18 ~01:00)**: SFT v3's 6 steps ran fine
+  (loss 0.1267 -> 0.0337) and its STATE saved, but the sampler save failed:
+  "Free checkpoint storage limit reached". Inventory
+  (`list_checkpoints.py`): 9 checkpoints, **116.98 GB** over the 100 GB
+  free tier — training states are 25.04 GB each, samplers 8.35 GB each.
+  Deleted the strictly dominated ones (`delete_checkpoints.py`): grpo-20
+  sampler (33/52, dominated by grpo-40), grpo-60 sampler (34/52, tied
+  overall but worse style 0.75 vs 0.812), v2-grpo-state (finished sweep,
+  never resumed). Kept: v1, v2 + v2-state, grpo-40 (best), v3-state,
+  first-sft. Now 6 checkpoints, 75.26 GB. The eval result files preserve
+  the deleted checkpoints' measurements. v1 (published round-1) was NOT
+  touched.
+- **v3 sampler recovered** (`make_sampler_from_state.py`): resumed a
+  training client from the v3 state and saved sampler
+  `inkling-video-cutting-v3`
+  (`tinker://055871af-7471-5462-bb94-432fa1cecbca:train:0/sampler_weights/inkling-video-cutting-v3`).
+  Evaluating on eval v2 now — the test is whether refusal teaching worked
+  (trap 0.00 -> ?) without breaking picks.
+- **Storage discipline for sweep 2**: ~25 GB free. Save intermediate
+  samplers one at a time and DELETE each right after its eval unless it
+  is the new best; the final state is saved only if space allows (else
+  the best sampler is the deliverable).
