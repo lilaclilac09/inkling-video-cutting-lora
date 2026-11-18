@@ -1,0 +1,739 @@
+[
+  {
+    "id": "mc-01",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\", \"title\": \"Arrival on Yanqing Road\", \"reason\": \"Type 1 exterior re-establishing the whole storefront, awning and plane trees with people at the door, so the viewer knows exactly where the day happens.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07",
+      "title": "Arrival on Yanqing Road",
+      "reason": "Type 1 exterior re-establishing the whole storefront, awning and plane trees with people at the door, so the viewer knows exactly where the day happens."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-02",
+    "format": "mc",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\", \"title\": \"The room fills up\", \"reason\": \"The timelapse of the audience arriving under the paper lanterns is the opening beat of the story - the room coming alive.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14",
+      "title": "The room fills up",
+      "reason": "The timelapse of the audience arriving under the paper lanterns is the opening beat of the story - the room coming alive."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-03",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719095456_0027_D.MP4\", \"start\": \"0:02\", \"end\": \"0:08\", \"reason\": \"Type 1 ultra-wide exterior of the storefront entrance with glass doors and awning; the walk-in beat needs the doorway/threshold moment bridging street to room, and this is the only exterior doorway shot among the candidates.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719095456_0027_D.MP4",
+      "start": "0:02",
+      "end": "0:08",
+      "reason": "Type 1 ultra-wide exterior of the storefront entrance with glass doors and awning; the walk-in beat needs the doorway/threshold moment bridging street to room, and this is the only exterior doorway shot among the candidates."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-04",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:11\", \"title\": \"The Agent era, on title\", \"reason\": \"Type 1 ultra-wide of the Agent/Harness title slide (the most legible title of the day) with the presenter front-facing; pairs with the 0047 close-up of the same man in the grey suit and white cap.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101632_0047_D.MP4",
+      "start": "0:05",
+      "end": "0:11",
+      "title": "The Agent era, on title",
+      "reason": "Type 1 ultra-wide of the Agent/Harness title slide (the most legible title of the day) with the presenter front-facing; pairs with the 0047 close-up of the same man in the grey suit and white cap."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-05",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\", \"reason\": \"Type 1 ultra-wide interior of the Harness talk: Carl Yang in light grey suit and white cap presenting dense Harness tables and architecture diagrams, matching the 'Enterprise Harness, in detail' takeaway.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:08",
+      "end": "0:15",
+      "reason": "Type 1 ultra-wide interior of the Harness talk: Carl Yang in light grey suit and white cap presenting dense Harness tables and architecture diagrams, matching the 'Enterprise Harness, in detail' takeaway."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-06",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719092043_0007_D.MP4\", \"start\": \"0:00\", \"end\": \"0:04\", \"reason\": \"Type 3 close-up of audience members filming with a camera/gimbal; the requested audience-with-gimbal beat.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719092043_0007_D.MP4",
+      "start": "0:00",
+      "end": "0:04",
+      "reason": "Type 3 close-up of audience members filming with a camera/gimbal; the requested audience-with-gimbal beat."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-07",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:24\", \"end\": \"0:32\", \"reason\": \"Type 3 interior close-up of the young builder in black tee and glasses speaking into a mic with the phone chat app visible on the big screen beside him; the live demo the room can follow.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084244_0041_D.MP4",
+      "start": "0:24",
+      "end": "0:32",
+      "reason": "Type 3 interior close-up of the young builder in black tee and glasses speaking into a mic with the phone chat app visible on the big screen beside him; the live demo the room can follow."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-08",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\", \"title\": \"Woman demos her phone app\", \"reason\": \"Type 3 close-up of the woman presenter (green tee, cap) speaking into the mic beside the phone-app screen; the recap needs the woman demoing her app, and this is the only close-up of her with the app on screen.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36",
+      "title": "Woman demos her phone app",
+      "reason": "Type 3 close-up of the woman presenter (green tee, cap) speaking into the mic beside the phone-app screen; the recap needs the woman demoing her app, and this is the only close-up of her with the app on screen."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-09",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719091529_0043_D.MP4\", \"start\": \"0:18\", \"end\": \"0:24\", \"reason\": \"Woman presenter at the screen with the 'Your agents work' line on screen, audience seated at tables — matches the requested moment.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719091529_0043_D.MP4",
+      "start": "0:18",
+      "end": "0:24",
+      "reason": "Woman presenter at the screen with the 'Your agents work' line on screen, audience seated at tables — matches the requested moment."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-10",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:25\", \"end\": \"0:32\", \"reason\": \"Type 3 interior close-up of the 'Information Radar' presenter (green tee, glasses) with the product dashboard and China AI-activity map legible on screen; the room is filming the demo with a phone, matching the requested beat.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103442_0049_D.MP4",
+      "start": "0:25",
+      "end": "0:32",
+      "reason": "Type 3 interior close-up of the 'Information Radar' presenter (green tee, glasses) with the product dashboard and China AI-activity map legible on screen; the room is filming the demo with a phone, matching the requested beat."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "mc-11",
+    "format": "mc",
+    "raw": "{\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:01\", \"end\": \"0:06\", \"title\": \"Chatting under the plane trees\", \"reason\": \"Exterior street beat: four people chatting under the plane trees, the relaxed daily-life register that frames the event.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719104432_0054_D.MP4",
+      "start": "0:01",
+      "end": "0:06",
+      "title": "Chatting under the plane trees",
+      "reason": "Exterior street beat: four people chatting under the plane trees, the relaxed daily-life register that frames the event."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "trap-01",
+    "format": "trap",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:07\", \"end\": \"0:13\", \"label\": \"A\"}",
+    "letter": "A",
+    "hallucinated_clip": 1,
+    "correct": 0
+  },
+  {
+    "id": "trap-02",
+    "format": "trap",
+    "raw": "{file: \"DJI_20260719084244_0041_D.MP4\", start: \"0:00\", end: \"0:16\"}\n{file: \"DJI_20260719074342_0038_D.MP4\", start: \"0:00\", end: \"0:16\"}\n{file: \"DJI_20260719092043_0007_D.MP4\", start: \"0:00\", end: \"0:16\"}",
+    "letter": null,
+    "hallucinated_clip": 0,
+    "correct": 0
+  },
+  {
+    "id": "trap-03",
+    "format": "trap",
+    "raw": "{file: \"DJI_20260719084244_0041_D.MP4\", start: \"0:07\", end: \"0:13\", label: \"A\"}\n{file: \"DJI_20260719084244_0041_D.MP4\", start: \"0:07\", end: \"0:13\", label: \"B\"}\n{file: \"DJI_20260719074342_0038_D.MP4\", start: \"0:10\", end: \"0:16\", label: \"C\"}\n{file: \"DJI_20260719092043_0007_D.MP4\", start: \"0:07\", end: \"0:13\", label: \"D\"}\n{file: \"NONE\", start: \"0:00\", end: \"0:00\", label: \"E\"}{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:07\", \"end\": \"0:13\", \"label\": \"B\"}",
+    "letter": "A",
+    "hallucinated_clip": 1,
+    "correct": 0
+  },
+  {
+    "id": "trap-04",
+    "format": "trap",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:07\", \"end\": \"0:13\", \"title\": \"Talk M: phone chat app demo\"}",
+    "letter": null,
+    "hallucinated_clip": 1,
+    "correct": 0
+  },
+  {
+    "id": "sft-01",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:00\", \"end\": \"0:05\", \"title\": \"Talk M: the room laughs\", \"reason\": \"Type 3 interior ultra-wide of the teal-shirt M presenter with the whole room laughing together; the emotional peak of the morning footage, saved tight for the climax.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.571,
+    "near_miss": 1,
+    "correct": 0
+  },
+  {
+    "id": "sft-02",
+    "format": "sft",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:08\", \"end\": \"0:14\", \"title\": \"Talk M: the room laughs\", \"reason\": \"Type 3 interior ultra-wide of the whole room laughing together at the ARIAVA QR-code bit; the emotional peak of the morning footage, saved tight for the climax.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.75,
+    "near_miss": 1,
+    "correct": 0
+  },
+  {
+    "id": "sft-03",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719095456_0027_D.MP4\", \"start\": \"0:00\", \"end\": \"0:06\", \"title\": \"Talk M: Pairoa\", \"reason\": \"Type 3 interior ultra-wide of the Pairoa AI-native landing page demo; the blue Cursor-style editor close-up at 0:05 lets viewers read the product, a product close-up the wide shots cannot give.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.5,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-04",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:23\", \"title\": \"Talk M: the room laughs\", \"reason\": \"Type 5 interior close-up of the woman in the green tee and cap laughing with her whole body, eyes closed, hand to her chest; the man beside her laughs too. The warmest twelve seconds of the morning — a woman visibly delighted by what she is hearing. Cut on the laugh, not before it.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.333,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-05",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:16\", \"title\": \"Talk M: Pairoa\", \"reason\": \"Type 3 interior close-up of the Pairoa presenter with legible slides ('Pairoa / AI-native Intent Form / github.com/pairoa-ai/pairoa'); the clearest demo-forward beat of the morning footage, saved tight for the product close-up.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.875,
+    "near_miss": 1,
+    "correct": 0
+  },
+  {
+    "id": "sft-06",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719092043_0007_D.MP4\", \"start\": \"0:00\", \"end\": \"0:04\", \"title\": \"Talk L: room M, the AI Mi / Pairoa screen\", \"reason\": \"Type 3 interior ultra-wide of the second room: a woman in a green cap demos Pairoa (blue landing page, 'AI-native Intent Form') while the room watches; a second screen shows the same talk close-up. The AI Mi / Pairoa demo close-up the viewer asked for.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 1.0,
+    "near_miss": 1,
+    "correct": 1
+  },
+  {
+    "id": "sft-07",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:20\", \"end\": \"0:38\", \"title\": \"Talk L: Pairoa\", \"reason\": \"Type 3 interior close-up of a woman presenter (glasses, dark top) demoing Pairoa, a blue landing page with the Pairoa wordmark visible; she gestures at the screen and the audience leans in. A woman-presenter close-up with a legible product demo — exactly the follow-up-friendly, in-her-own-words beat to keep.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.444,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-08",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:24\", \"end\": \"0:32\", \"title\": \"Talk M: Pairoa\", \"reason\": \"Type 3 interior wide of the Pairoa AI-native landing page talk; the M: Pairoa banner is legible and the room is visibly smiling and engaged, giving the recap a warm, human beat between demos.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.25,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-09",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719091529_0043_D.MP4\", \"start\": \"0:18\", \"end\": \"0:24\", \"title\": \"Talk L: Pairoa\", \"reason\": \"Type 3 interior close-up of the Pairoa presenter with the product name legible on screen; an attentive woman in green is visible at the frame edge, setting up the follow-up beat.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 1.0,
+    "near_miss": 1,
+    "correct": 1
+  },
+  {
+    "id": "sft-10",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:04\", \"end\": \"0:08\", \"title\": \"Talk L: AI-native tools\", \"reason\": \"Type 3 interior close-up of the woman in white with the black-and-white polka-dot scarf presenting her own AI-native tools site; the clearest presenter close-up of the morning, saved tight for the featured moment.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.0,
+    "near_miss": 0,
+    "correct": 0
+  },
+  {
+    "id": "sft-11",
+    "format": "sft",
+    "raw": "{\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:00\", \"end\": \"0:05\", \"title\": \"Talk L: room E, teal shirt\", \"reason\": \"Type 3 interior ultra-wide of the teal-shirt presenter (Talk L); the waving audience member on the right sets up the Q&A beat later in the file.\"}",
+    "parsed_json": 1,
+    "file_match": 1,
+    "iou": 0.667,
+    "near_miss": 1,
+    "correct": 0
+  },
+  {
+    "id": "style-1-fresh",
+    "format": "style-mc",
+    "style": "fresh",
+    "raw": "{\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:11\", \"reason\": \"Type 1 ultra-wide interior of the talk M: the white-cap presenter at the big screen with the legible Agent/Harness title slide, the cafe storefront visible through the doorway, and the audience facing the screen. It is the brightest, most open interior frame of the talk (daylight at the door, uncluttered wide composition), which is what the fresh style needs; the close-up A is tighter and busier, and the timelapse B is an AI-regenerated clip that must not be used.\"}",
+    "letter": "A",
+    "by_letter": 0,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "DJI_20260719101632_0047_D.MP4",
+      "start": "0:05",
+      "end": "0:11",
+      "reason": "Type 1 ultra-wide interior of the talk M: the white-cap presenter at the big screen with the legible Agent/Harness title slide, the cafe storefront visible through the doorway, and the audience facing the screen. It is the brightest, most open interior frame of the talk (daylight at the door, uncluttered wide composition), which is what the fresh style needs; the close-up A is tighter and busier, and the timelapse B is an AI-regenerated clip that must not be used."
+    },
+    "empty": 0,
+    "correct": 0
+  },
+  {
+    "id": "style-1-silicon-valley",
+    "format": "style-mc",
+    "style": "silicon-valley",
+    "raw": "{\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:11\", \"title\": \"Talk H: the Harness talk L\", \"reason\": \"Type 3 interior ultra-wide of the Harness talk (white cap, grey suit); the cut lands on the gesture peak of the L-end beat, not the climax, so the peak survives into the next shot.\"}",
+    "letter": "H",
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101632_0047_D.MP4",
+      "start": "0:05",
+      "end": "0:11",
+      "title": "Talk H: the Harness talk L",
+      "reason": "Type 3 interior ultra-wide of the Harness talk (white cap, grey suit); the cut lands on the gesture peak of the L-end beat, not the climax, so the peak survives into the next shot."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-1-glamour",
+    "format": "style-mc",
+    "style": "glamour",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14"
+    },
+    "empty": 0,
+    "correct": 0
+  },
+  {
+    "id": "style-1-hollywood",
+    "format": "style-mc",
+    "style": "hollywood",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\", \"reason\": \"Type 3 interior ultra-wide timelapse of the whole room filling up; the hollywood style wants scale and a cinematic sweep of the room, and this is the only candidate that shows the full room at scale.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:06",
+      "end": "0:14",
+      "reason": "Type 3 interior ultra-wide timelapse of the whole room filling up; the hollywood style wants scale and a cinematic sweep of the room, and this is the only candidate that shows the full room at scale."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-2-fresh",
+    "format": "style-mc",
+    "style": "fresh",
+    "raw": "{\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:25\", \"end\": \"0:32\", \"reason\": \"Type 3 interior presenter close-up (man in green tee with glasses presenting 'Information Radar'); the recap has no presenter close-up yet, and the fresh style favors a bright, airy close-up of a person over another wide room shot.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "DJI_20260719103442_0049_D.MP4",
+      "start": "0:25",
+      "end": "0:32",
+      "reason": "Type 3 interior presenter close-up (man in green tee with glasses presenting 'Information Radar'); the recap has no presenter close-up yet, and the fresh style favors a bright, airy close-up of a person over another wide room shot."
+    },
+    "empty": 0,
+    "correct": 0
+  },
+  {
+    "id": "style-2-silicon-valley",
+    "format": "style-mc",
+    "style": "silicon-valley",
+    "raw": "{\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:25\", \"end\": \"0:32\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103442_0049_D.MP4",
+      "start": "0:25",
+      "end": "0:32"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-2-glamour",
+    "format": "style-mc",
+    "style": "glamour",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\", \"reason\": \"Type 1 ultra-close-up of the woman presenter (green tee, cap) speaking into the mic beside the phone-app screen; warm light, a face at its best, exactly the glamour close-up the recap needs.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36",
+      "reason": "Type 1 ultra-close-up of the woman presenter (green tee, cap) speaking into the mic beside the phone-app screen; warm light, a face at its best, exactly the glamour close-up the recap needs."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-2-hollywood",
+    "format": "style-mc",
+    "style": "hollywood",
+    "raw": "{\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:25\", \"end\": \"0:32\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "DJI_20260719103442_0049_D.MP4",
+      "start": "0:25",
+      "end": "0:32"
+    },
+    "empty": 0,
+    "correct": 0
+  },
+  {
+    "id": "style-3-fresh",
+    "format": "style-mc",
+    "style": "fresh",
+    "raw": "{\"file\": \"DJI_20260719095456_0027_D.MP4\", \"start\": \"0:08\", \"end\": \"0:14\", \"reason\": \"The fresh style calls for bright, airy, uncluttered frames with breathing room — the exterior storefront with daylight and open space fits best; the interior close-ups are too dense and cluttered.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719095456_0027_D.MP4",
+      "start": "0:08",
+      "end": "0:14",
+      "reason": "The fresh style calls for bright, airy, uncluttered frames with breathing room — the exterior storefront with daylight and open space fits best; the interior close-ups are too dense and cluttered."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-3-silicon-valley",
+    "format": "style-mc",
+    "style": "silicon-valley",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:15\", \"end\": \"0:21\", \"title\": \"Talk H: Harness engineering\", \"reason\": \"Type 3 interior ultra-wide of the Harness-engineering talk (Carl Yang, light grey suit, white cap), the substance-first close-up the recap needs; the file's 0:15-0:21 window lands on the presenter and the Harness-titled screen, not the M-shaped-curve slides.\"}",
+    "letter": "H",
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:15",
+      "end": "0:21",
+      "title": "Talk H: Harness engineering",
+      "reason": "Type 3 interior ultra-wide of the Harness-engineering talk (Carl Yang, light grey suit, white cap), the substance-first close-up the recap needs; the file's 0:15-0:21 window lands on the presenter and the Harness-titled screen, not the M-shaped-curve slides."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-3-glamour",
+    "format": "style-mc",
+    "style": "glamour",
+    "raw": "{\"file\": \"DJI_20260719104626_0056_D.MP4\", \"start\": \"0:00\", \"end\": \"0:06\", \"reason\": \"Glamour style: close-ups of people at their best in warm light; the bar close-up with the woman and the presenter in pink is the most polished, human, poster-worthy footage of the four.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719104626_0056_D.MP4",
+      "start": "0:00",
+      "end": "0:06",
+      "reason": "Glamour style: close-ups of people at their best in warm light; the bar close-up with the woman and the presenter in pink is the most polished, human, poster-worthy footage of the four."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-3-hollywood",
+    "format": "style-mc",
+    "style": "hollywood",
+    "raw": "{\"file\": \"A\", \"start\": \"0:18\", \"end\": \"0:24\"}",
+    "letter": "A",
+    "by_letter": 1,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "A",
+      "start": "0:18",
+      "end": "0:24"
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-4-fresh",
+    "format": "style-mc",
+    "style": "fresh",
+    "raw": "{\"file\": \"DJI_20260719094910_0025_D.MP4\", \"start\": \"0:00\", \"end\": \"0:06\", \"reason\": \"Type 4 (people close-up) is the missing rhythm; the only people close-up available is this exterior street shot, which the fresh style (outdoors, daylight, uncluttered) favors.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719094910_0025_D.MP4",
+      "start": "0:00",
+      "end": "0:06",
+      "reason": "Type 4 (people close-up) is the missing rhythm; the only people close-up available is this exterior street shot, which the fresh style (outdoors, daylight, uncluttered) favors."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "style-4-silicon-valley",
+    "format": "style-mc",
+    "style": "silicon-valley",
+    "raw": "{\"file\": \"DJI_20260719073634_0037_D.MP4\", \"start\": \"0:50\", \"end\": \"0:56\", \"title\": \"Type 4 close-up: audience watching\", \"reason\": \"Type 4 (people close-up): the camera pans to a close-up of audience members watching the talk; faces fill the frame, the tightest human shot of the morning.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "DJI_20260719073634_0037_D.MP4",
+      "start": "0:50",
+      "end": "0:56",
+      "title": "Type 4 close-up: audience watching",
+      "reason": "Type 4 (people close-up): the camera pans to a close-up of audience members watching the talk; faces fill the frame, the tightest human shot of the morning."
+    },
+    "empty": 0,
+    "correct": 0
+  },
+  {
+    "id": "style-4-glamour",
+    "format": "style-mc",
+    "style": "glamour",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:14\", \"end\": \"0:20\", \"reason\": \"Type 4 interior wide of the room filling up; the glamour piece needs a warm, polished wide of the cafe at its best, and the timelapse of the whole room with lanterns and the glowing screen is the most beautiful wide available.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 0,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:14",
+      "end": "0:20",
+      "reason": "Type 4 interior wide of the room filling up; the glamour piece needs a warm, polished wide of the cafe at its best, and the timelapse of the whole room with lanterns and the glowing screen is the most beautiful wide available."
+    },
+    "empty": 0,
+    "correct": 0
+  },
+  {
+    "id": "style-4-hollywood",
+    "format": "style-mc",
+    "style": "hollywood",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:14\", \"end\": \"0:20\", \"reason\": \"Type 4 interior-people-closeup is the required slot; the timelapse of the room filling up is the closest fit (the room reacting, scale, a cinematic sweep), and the cafe recap needs the audience-arriving beat.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "延时.MP4",
+      "start": "0:14",
+      "end": "0:20",
+      "reason": "Type 4 interior-people-closeup is the required slot; the timelapse of the room filling up is the closest fit (the room reacting, scale, a cinematic sweep), and the cafe recap needs the audience-arriving beat."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-00-1",
+    "format": "stability",
+    "pair": "stab-00",
+    "raw": "{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\", \"reason\": \"Type 1 exterior wide of the whole storefront with awning and plane trees, people at the door — exactly the arrival-on-the-street beat the recap needs to open the day.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07",
+      "reason": "Type 1 exterior wide of the whole storefront with awning and plane trees, people at the door — exactly the arrival-on-the-street beat the recap needs to open the day."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-00-2",
+    "format": "stability",
+    "pair": "stab-00",
+    "raw": "{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\", \"reason\": \"Type D exterior wide of the whole storefront with awning and plane trees, people at the door — exactly the arrival-on-Yanqing-Road opening the recap needs.\"}",
+    "letter": "D",
+    "by_letter": 1,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07",
+      "reason": "Type D exterior wide of the whole storefront with awning and plane trees, people at the door — exactly the arrival-on-Yanqing-Road opening the recap needs."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-08-1",
+    "format": "stability",
+    "pair": "stab-08",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\", \"title\": \"Enterprise Harness, in detail\", \"reason\": \"The clearest 'big topic' takeaway of the morning - dense Harness tables and architecture diagrams delivered by a speaker the room is quietly locked onto.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:08",
+      "end": "0:15",
+      "title": "Enterprise Harness, in detail",
+      "reason": "The clearest 'big topic' takeaway of the morning - dense Harness tables and architecture diagrams delivered by a speaker the room is quietly locked onto."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-08-2",
+    "format": "stability",
+    "pair": "stab-08",
+    "raw": "{\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\", \"title\": \"Enterprise Harness, in detail\", \"reason\": \"Type 3 interior close-up of Carl Yang (light grey suit, white cap) presenting dense Harness tables and architecture diagrams; the clearest big-topic takeaway of the morning, delivered by a speaker the room is locked onto.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:08",
+      "end": "0:15",
+      "title": "Enterprise Harness, in detail",
+      "reason": "Type 3 interior close-up of Carl Yang (light grey suit, white cap) presenting dense Harness tables and architecture diagrams; the clearest big-topic takeaway of the morning, delivered by a speaker the room is locked onto."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-12-1",
+    "format": "stability",
+    "pair": "stab-12",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\", \"reason\": \"Close-up of the woman presenter (green tee, cap) speaking into the mic beside the phone-app screen; she is presenting her own phone app with the springboard screen behind her.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36",
+      "reason": "Close-up of the woman presenter (green tee, cap) speaking into the mic beside the phone-app screen; she is presenting her own phone app with the springboard screen behind her."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "stab-12-2",
+    "format": "stability",
+    "pair": "stab-12",
+    "raw": "{\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\", \"reason\": \"Type 2 close-up of the woman presenter (green tee, cap) speaking into the mic beside the phone-app screen; the recap needs the woman demoing her phone app, and this is the only close-up of her presenting.\"}",
+    "letter": null,
+    "by_letter": 0,
+    "by_clip": 1,
+    "pred_clip": {
+      "file": "DJI_20260719084815_0042_D.MP4",
+      "start": "0:29",
+      "end": "0:36",
+      "reason": "Type 2 close-up of the woman presenter (green tee, cap) speaking into the mic beside the phone-app screen; the recap needs the woman demoing her phone app, and this is the only close-up of her presenting."
+    },
+    "empty": 0,
+    "correct": 1
+  },
+  {
+    "id": "multi-01",
+    "format": "multi",
+    "raw": "[{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\"}, {\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:11\"}, {\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:01\", \"end\": \"0:06\"}]",
+    "parsed_list": 1,
+    "slots_exact": 3,
+    "slots_file": 3,
+    "n_returned": 3,
+    "correct": 1
+  },
+  {
+    "id": "multi-02",
+    "format": "multi",
+    "raw": "[{\"file\": \"DJI_20260719095456_0027_D.MP4\", \"start\": \"0:02\", \"end\": \"0:08\"}, {\"file\": \"DJI_20260719084244_0041_D.MP4\", \"start\": \"0:24\", \"end\": \"0:32\"}, {\"file\": \"DJI_20260719091529_0043_D.MP4\", \"start\": \"0:18\", \"end\": \"0:24\"}]",
+    "parsed_list": 1,
+    "slots_exact": 3,
+    "slots_file": 3,
+    "n_returned": 3,
+    "correct": 1
+  },
+  {
+    "id": "multi-03",
+    "format": "multi",
+    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}",
+    "parsed_list": 0,
+    "slots_exact": 0,
+    "slots_file": 0,
+    "correct": 0
+  },
+  {
+    "id": "multi-04",
+    "format": "multi",
+    "raw": "[{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\"}, {\"file\": \"DJI_20260719103442_0049_D.MP4\", \"start\": \"0:25\", \"end\": \"0:32\"}, {\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:01\", \"end\": \"0:06\"}]",
+    "parsed_list": 1,
+    "slots_exact": 3,
+    "slots_file": 3,
+    "n_returned": 3,
+    "correct": 1
+  }
+]
