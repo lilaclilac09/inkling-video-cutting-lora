@@ -98,7 +98,10 @@ def clip_iou(clip, gold_clip):
 def score_item(item, text):
     fmt = item["format"]
     gold = item["gold"]
-    out = {"raw": text[:1500]}
+    # Store the FULL raw output: re-scoring from a saved file must see exactly
+    # what live scoring saw. (Truncating raw to 1500 chars lost base's late
+    # multi-pick answers on re-score: live multi 0.50 vs re-scored 0.00.)
+    out = {"raw": text}
     if fmt in ("mc", "style-mc", "stability"):
         clip = extract_clip_json(text)
         letter = extract_letter(text)
