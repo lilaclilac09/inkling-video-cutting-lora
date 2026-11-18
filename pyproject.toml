@@ -1,0 +1,19 @@
+[project]
+name = "inkling-video-cutting-lora"
+version = "0.2.0"
+description = "LoRA fine-tune of Thinking Machines Inkling 2 Small that cuts meetup footage into one shareable clip"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+# Only real training needs these. The contract, the eval and the dry run need nothing.
+train = ["tinker>=0.39", "tml-renderers>=0.4"]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
