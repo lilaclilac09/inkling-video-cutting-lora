@@ -142,3 +142,18 @@ Chronological. Baselines, sweeps, costs, decisions. Times in Asia/Shanghai.
   letter to its option's clip first. Re-rescored everything: accuracy
   numbers unchanged everywhere; pairs corrected (v3-grpo-20: 1/3 -> 3/3;
   v3: 1/3 -> 2/3; base: 3/3 -> 1/3 — the old metric had flattered base).
+- **RUNTIME RESTART killed sweep 2 attempt 1** (2026-11-19 ~00:14): the
+  process died mid-step-37 (log ends at step 36, no checkpoint 40, no
+  DONE). In-memory weights for steps 21-36 are lost — checkpoints exist
+  only at step 20. The step-20 sampler (39/52) is unaffected and stays
+  the best. Attempt-1 log archived as `grpo2-run-attempt1.log`.
+- **Relaunch crash, fixed in 5 minutes**: the first r2 launch died at
+  step 0 with `KeyError: 'prompt'` — the agreement-metric fix in
+  `scoring.py` reads `item["prompt"]`, but the GRPO loop scored with a
+  minimal dict that has no prompt. Fixed both sides (guard in the scorer;
+  GRPO now passes the full prompt) and unit-tested; r2 relaunched with
+  the same params, seed 456, checkpoint prefix `v3-grpo-r2`. Nothing was
+  trained before the crash, so nothing was lost.
+- **GRPO sweep 2 (r2) RUNNING**: from the v3 state, temp 1.0, 39 hard
+  prompts, 60 steps, lr 1e-5, --no-final-state. Checkpoints
+  `v3-grpo-r2-{20,40,60}`; each evaluated, delete unless new best.
