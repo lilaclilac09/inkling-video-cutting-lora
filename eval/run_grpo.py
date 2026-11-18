@@ -59,6 +59,8 @@ async def main():
     ap.add_argument("--temperature", type=float, default=0.7)
     ap.add_argument("--eval-every", type=int, default=20)
     ap.add_argument("--state-path", default=DEFAULT_STATE)
+    ap.add_argument("--prompts", default=PROMPTS_PATH)
+    ap.add_argument("--name-prefix", default="inkling-video-cutting-v2-grpo")
     ap.add_argument("--seed", type=int, default=123)
     ap.add_argument("--log", default=None)
     args = ap.parse_args()
@@ -96,8 +98,8 @@ async def main():
     from transformers import AutoTokenizer
 
     tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)
-    prompts = load_prompts(PROMPTS_PATH)
-    log(f"GRPO prompts: {len(prompts)} (mc/style-mc/trap)")
+    prompts = load_prompts(args.prompts)
+    log(f"GRPO prompts: {len(prompts)} from {args.prompts} (mc/style-mc/trap)")
 
     service_client = tinker.ServiceClient(display_name="inkling-video-cutting-grpo")
     log(f"Resuming training from state: {args.state_path}")
@@ -240,7 +242,7 @@ async def main():
 
         # Checkpoint + eval points.
         if (step + 1) % args.eval_every == 0 or (step + 1) == args.steps:
-            name = f"inkling-video-cutting-v2-grpo-{step + 1}"
+            name = f"{args.name_prefix}-{step + 1}"
             try:
                 ckpt = await training_client.save_weights_for_sampler(name=name)
                 log(f"CHECKPOINT step {step + 1}: name={name} path={ckpt.path}")
@@ -249,7 +251,7 @@ async def main():
                 log(f"CHECKPOINT_FAILED step {step + 1}: {type(e).__name__}: {e}")
 
     try:
-        state = await training_client.save_state(name="inkling-video-cutting-v2-grpo-state")
+        state = await training_client.save_state(name=f"{args.name_prefix}-state")
         log(f"FINAL_STATE_PATH={state.path}")
     except Exception as e:
         log(f"FINAL_STATE_SAVE_FAILED: {type(e).__name__}: {e}")
