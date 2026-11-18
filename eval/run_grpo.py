@@ -189,7 +189,7 @@ async def main():
             seqs = []
             for seq in result.sequences:
                 text = tokenizer.decode(seq.tokens, skip_special_tokens=True).strip()
-                rec = score_item({"format": prompt["format"], "gold": prompt["gold"]}, text)
+                rec = score_item(prompt, text)
                 rewards.append(rec["correct"])
                 seqs.append((seq, text))
                 total_sample_tokens += len(ptokens) + len(seq.tokens)
