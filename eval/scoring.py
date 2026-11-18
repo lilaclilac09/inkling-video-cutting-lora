@@ -177,10 +177,24 @@ def summarize(name, recs, verbose=True):
             m["mean_slots_exact"] = round(sum(r.get("slots_exact", 0) for r in sub) / len(sub), 3)
             m["mean_slots_file"] = round(sum(r.get("slots_file", 0) for r in sub) / len(sub), 3)
         metrics[fmt] = m
-    # Stability pair agreement: same (pred_clip or letter) on both reps.
+    # Stability pair agreement: same PICK on both reps. Compare only
+    # (file, start, end) — never the reason/title text, which varies
+    # between calls even for the same pick. (Bug found 2026-11-18: comparing
+    # the whole clip dict made v1 score agree=0 while acc=1.0, because its
+    # two reps emitted the same clip with different reason text.)
     stab = [r for r in recs if r["format"] == "stability"]
     if stab:
         from collections import defaultdict
+
+        def _pred_key(r):
+            c = r.get("pred_clip")
+            if c:
+                try:
+                    return (c.get("file"), parse_ts(c.get("start")), parse_ts(c.get("end")))
+                except Exception:
+                    return json.dumps(c, sort_keys=True)
+            return r.get("letter")
+
         pairs = defaultdict(list)
         for r in stab:
             pairs[r.get("pair", r["id"].rsplit("-", 1)[0])].append(r)
@@ -189,10 +203,7 @@ def summarize(name, recs, verbose=True):
         for _, rs in pairs.items():
             if len(rs) == 2:
                 total += 1
-                a, b = rs
-                ka = json.dumps(a.get("pred_clip"), sort_keys=True) if a.get("pred_clip") else a.get("letter")
-                kb = json.dumps(b.get("pred_clip"), sort_keys=True) if b.get("pred_clip") else b.get("letter")
-                if ka is not None and ka == kb:
+                if _pred_key(rs[0]) is not None and _pred_key(rs[0]) == _pred_key(rs[1]):
                     agree += 1
         metrics["stability_pairs"] = {"n_pairs": total, "agree": agree}
     metrics["overall"] = {
