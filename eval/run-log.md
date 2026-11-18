@@ -111,7 +111,26 @@ Chronological. Baselines, sweeps, costs, decisions. Times in Asia/Shanghai.
   (`tinker://055871af-7471-5462-bb94-432fa1cecbca:train:0/sampler_weights/inkling-video-cutting-v3`).
   Evaluating on eval v2 now — the test is whether refusal teaching worked
   (trap 0.00 -> ?) without breaking picks.
-- **Storage discipline for sweep 2**: ~25 GB free. Save intermediate
-  samplers one at a time and DELETE each right after its eval unless it
-  is the new best; the final state is saved only if space allows (else
-  the best sampler is the deliverable).
+- **SFT v3 eval: 23/52 = 0.44** (`v2-v3.json`) — a sharp trade-off. Trap
+  **4/4 (hallucinated 0.0)**: refusal teaching worked. Multi **4/4
+  (3.0/3 slots)**: perfect. But style-mc collapsed to **1/16 (0.062)** and
+  sft exact to 0.00. Failure mode (read the raws): v3 answers "None" to
+  EVERY style item — refusal over-generalised; when the style line makes
+  the choice less obvious, it refuses instead of picking. mc still 0.818
+  (by letter now, not clip JSON — the refusal rows shifted the answer
+  format). v3 is not a good base overall, but it holds the two perfect
+  axes (trap, multi) that grpo-40 lacks, and the style knowledge is
+  likely intact underneath (6 gentle steps cannot erase it) — it needs
+  re-eliciting, which is exactly GRPO's job.
+- **v2-state deleted** (25.04 GB): v3-state supersedes it as the training
+  lineage (v3 = v2 + 6 refusal steps). Storage now 58.56 GB, 6 checkpoints.
+  The v2 SAMPLER is kept (inference + baseline); only the training state
+  went. If sweep 2 fails, the fallback is v3-state / grpo-40 / v2 samplers.
+- **GRPO sweep 2 RUNNING** (`grpo2-run.log`): from the v3 state, temp 1.0,
+  39 hard prompts, 60 steps, lr 1e-5, --no-final-state (storage). Early
+  steps show signal again (16 datums/step, rewards 0.06-0.50 — the hard
+  prompts + temp 1.0 restored contrast after sweep 1 saturated). The
+  design: style-mc rewards picking right (cures over-refusal), style-traps
+  reward refusing (preserves refusal) — the same style lines, opposite
+  correct answers. Checkpoints at 20/40/60, each evaluated; delete each
+  unless it is the new best.
