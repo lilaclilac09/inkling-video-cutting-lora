@@ -65,3 +65,31 @@ Chronological. Baselines, sweeps, costs, decisions. Times in Asia/Shanghai.
   from the v2 state, on-policy sampler created, sample works with
   logprobs. GRPO can start. (v1's sampler path cannot resume — verified
   earlier; v2's state path is the fix.)
+- **GRPO sweep 1 running** (`grpo-run.log`): 60 steps, G=8, temp 0.7, 4
+  prompts/step, lr 1e-5, from the v2 state. Step rewards started 0.50 /
+  0.66 / 0.31 and drifted up to 0.75-1.00 — but the training prompts
+  saturated: by step 19 whole batches score 1.000 and most groups go
+  degenerate (unanimous, 0 datums). Random-window distractors are too easy;
+  the model already masters the training moments.
+- **Logprobs verified** (`probe_logprobs_tempered.py`): sample() logprobs
+  match compute_logprobs() exactly (max|diff| = 0.0000) — untempered, so
+  the GRPO datums are correct. (Step-0 e_max_violation ~46 has another
+  cause; it does not block learning.)
+- **GRPO step-20 eval: 33/52 = 0.64** (`v2-grpo-20.json`), vs v2's 32/52.
+  Style-mc 0.625 -> **0.75** (silicon-valley 4/4) — GRPO teaches style.
+  But trap 0.00 got worse (hallucinated 0.75 -> 1.00): the 23 pick-prompts
+  constantly reward picking, while trap groups are degenerate (the model
+  never refuses, so no trap gradient) — refusal gets trained away. sft
+  exact 0.18 -> 0.09 (window precision not protected by a clip-level
+  reward). mc/stability/multi unchanged (1.00 / 1.00 / 0.75).
+- **Sweep 2 planned** (`grpo-prompts-v2.jsonl`, 39 prompts): hard
+  distractors (other training clips, one per other style for style items)
+  + 16 style-traps (4 moments x 4 styles). Temp 1.0 for rollout diversity.
+  `run_grpo.py` now takes --prompts / --temperature / --name-prefix.
+- **SFT stage 2 (v3) planned** (`sft-v3-data.jsonl`, 35 rows): GRPO cannot
+  invent refusal, so SFT teaches it directly — 8 refusal rows on moments
+  verified absent but NOT the eval's trap moments (fireworks / a dog on
+  stage / snow / a birthday cake; zero mentions in 1411 shot descriptions,
+  20 picks, 27 rows) in vlog + one other style each, answer "None", plus
+  the 27 original rows as replay. 6 gentle steps (lr 1e-4) from the v2
+  state. Eval then decides whether sweep 2 starts from the v3 state.
