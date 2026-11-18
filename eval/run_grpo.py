@@ -61,6 +61,10 @@ async def main():
     ap.add_argument("--state-path", default=DEFAULT_STATE)
     ap.add_argument("--prompts", default=PROMPTS_PATH)
     ap.add_argument("--name-prefix", default="inkling-video-cutting-v2-grpo")
+    ap.add_argument("--no-final-state", action="store_true",
+                    help="Skip the final save_state (25 GB). Use when checkpoint "
+                         "storage is tight; the best sampler checkpoint is the "
+                         "deliverable and the start state remains resumable.")
     ap.add_argument("--seed", type=int, default=123)
     ap.add_argument("--log", default=None)
     args = ap.parse_args()
@@ -250,11 +254,14 @@ async def main():
             except Exception as e:
                 log(f"CHECKPOINT_FAILED step {step + 1}: {type(e).__name__}: {e}")
 
-    try:
-        state = await training_client.save_state(name=f"{args.name_prefix}-state")
-        log(f"FINAL_STATE_PATH={state.path}")
-    except Exception as e:
-        log(f"FINAL_STATE_SAVE_FAILED: {type(e).__name__}: {e}")
+    if not args.no_final_state:
+        try:
+            state = await training_client.save_state(name=f"{args.name_prefix}-state")
+            log(f"FINAL_STATE_PATH={state.path}")
+        except Exception as e:
+            log(f"FINAL_STATE_SAVE_FAILED: {type(e).__name__}: {e}")
+    else:
+        log("FINAL_STATE skipped (--no-final-state; storage discipline).")
     log(f"DONE: {args.steps} steps. cum_sample_tokens={total_sample_tokens} "
         f"cum_train_tokens={total_train_tokens}")
     logf.close()
