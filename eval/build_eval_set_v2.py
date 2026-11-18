@@ -209,6 +209,30 @@ def main():
     RNG.shuffle(windows)
     print(f"distractor windows: {len(windows)} total, {len(clean_windows)} from never-trained files")
 
+    # Rotating draw: each call consumes the NEXT windows from the pool, so
+    # items do not all share the same top-of-pool distractors. (The v1
+    # builder restarts the pool per item — a known limitation; v1 items are
+    # frozen for comparability, but new v2 items must not repeat it. In
+    # particular the two reps of a stability pair MUST get disjoint
+    # distractors, or the pair would test nothing.)
+    _pool_pos = [0]
+
+    def draw(n, gold_file):
+        out = []
+        pool = clean_windows if len(clean_windows) >= n else windows
+        tried = 0
+        while len(out) < n and tried < len(pool) * 2:
+            w = pool[_pool_pos[0] % len(pool)]
+            _pool_pos[0] += 1
+            tried += 1
+            if w[0] == gold_file:
+                continue
+            if any(w[0] == d[0] and overlaps(w[0], w[1], w[2], d[0], d[1], d[2]) for d in out):
+                continue
+            out.append((w[0], w[1], w[2], window_desc(w[0], w[1], w[2])))
+        assert len(out) == n, f"only {len(out)} distractors, need {n}"
+        return out
+
     # --- style-mc: same set, 4 styles, gold differs by style.
     for s in STYLE_SETS:
         cands = []
@@ -263,17 +287,7 @@ def main():
         gold = (c["file"], s0, e0, window_desc(c["file"], s0, e0))
         slot = f"The recap needs a clip for this moment: \"{c['title']}\" — {c['reason']}"
         for rep in (1, 2):
-            distractors = []
-            pool = clean_windows if len(clean_windows) >= 3 else windows
-            for w in pool:
-                if w[0] == c["file"]:
-                    continue
-                if any(w[0] == d[0] and overlaps(w[0], w[1], w[2], d[0], d[1], d[2]) for d in distractors):
-                    continue
-                distractors.append((w[0], w[1], w[2], window_desc(w[0], w[1], w[2])))
-                if len(distractors) == 3:
-                    break
-            assert len(distractors) == 3, f"not enough distractors for stability pick {pi} rep {rep}"
+            distractors = draw(3, c["file"])
             options = [gold] + distractors
             RNG.shuffle(options)
             gold_letter = letters[options.index(gold)]
@@ -300,17 +314,18 @@ def main():
             c = p["clip"]
             golds.append((c["file"], parse_ts(c["start"]), parse_ts(c["end"]),
                           window_desc(c["file"], parse_ts(c["start"]), parse_ts(c["end"])), pi))
+        # Distractors must not share a file with any gold (else the file name
+        # alone cannot discriminate the beat), and must be disjoint across
+        # multi items (rotating draw).
+        gold_files = {g[0] for g in golds}
         distractors = []
-        pool = clean_windows if len(clean_windows) >= 5 else windows
-        for w in pool:
-            if any(w[0] == g[0] for g in golds):
+        while len(distractors) < 5:
+            w = draw(1, "")[0]
+            if w[0] in gold_files:
                 continue
             if any(w[0] == d[0] and overlaps(w[0], w[1], w[2], d[0], d[1], d[2]) for d in distractors):
                 continue
-            distractors.append((w[0], w[1], w[2], window_desc(w[0], w[1], w[2])))
-            if len(distractors) == 5:
-                break
-        assert len(distractors) == 5, f"not enough distractors for multi-{mi}"
+            distractors.append(w)
         options = [(g[0], g[1], g[2], g[3]) for g in golds] + distractors
         RNG.shuffle(options)
         beats = "\n".join(
