@@ -64,7 +64,7 @@ STYLE_SETS = [
         "cands": [
             ("DJI_20260719101336_0037_D.MP4", 1, 7, "fresh",
              "v5 pick 0 'Arrival on Yanqing Road': whole storefront, awning and plane trees, people outside"),
-            ("延时.MP4", 6, 14, "hollywood",
+            ("timelapse.MP4", 6, 14, "hollywood",
              "v5 pick 1 'The room fills up': timelapse of the audience arriving under the paper lanterns"),
             ("DJI_20260719101632_0047_D.MP4", 5, 11, "silicon-valley",
              "v5 pick 7 'The Agent era, on title': the most legible title slide of the day"),
@@ -103,7 +103,7 @@ STYLE_SETS = [
         "cands": [
             ("DJI_20260719094910_0025_D.MP4", 0, 6, "fresh",
              "shot list: EXTERIOR street: close-up of people outside (woman with a phone, men chatting) under the plane trees"),
-            ("延时.MP4", 14, 20, "hollywood",
+            ("timelapse.MP4", 14, 20, "hollywood",
              "shot list: timelapse continues — the room keeps filling, same sweeping scale as the opening beat"),
             ("DJI_20260719072352_0033_D.MP4", 13, 19, "silicon-valley",
              "shot list: man in striped shirt presents at the big screen; screen shows Chinese AI-native tools slides"),

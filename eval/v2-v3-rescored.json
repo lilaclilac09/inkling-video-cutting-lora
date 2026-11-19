@@ -17,12 +17,12 @@
   {
     "id": "mc-02",
     "format": "mc",
-    "raw": "C: 延时.MP4 0:06-0:14",
+    "raw": "C: timelapse.MP4 0:06-0:14",
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
     "pred_clip": {
-      "file": "延时.MP4",
+      "file": "timelapse.MP4",
       "start": "0:06",
       "end": "0:14"
     },
@@ -201,7 +201,7 @@
   {
     "id": "sft-02",
     "format": "sft",
-    "raw": "{\"file\": \"延时.MP4\", \"start\": \"0:05\", \"end\": \"0:07\", \"title\": \"The whole day, in two seconds\", \"reason\": \"A timelapse compresses the day into a breath — the light moving across the street, the crowd arriving and leaving. Use it to show the passage of time the recap otherwise has to narrate.\"}",
+    "raw": "{\"file\": \"timelapse.MP4\", \"start\": \"0:05\", \"end\": \"0:07\", \"title\": \"The whole day, in two seconds\", \"reason\": \"A timelapse compresses the day into a breath — the light moving across the street, the crowd arriving and leaving. Use it to show the passage of time the recap otherwise has to narrate.\"}",
     "parsed_json": 1,
     "file_match": 1,
     "iou": 0.111,
@@ -482,12 +482,12 @@
     "id": "style-4-hollywood",
     "format": "style-mc",
     "style": "hollywood",
-    "raw": "B: 延时.MP4 0:14-0:20",
+    "raw": "B: timelapse.MP4 0:14-0:20",
     "letter": "B",
     "by_letter": 1,
     "by_clip": 0,
     "pred_clip": {
-      "file": "延时.MP4",
+      "file": "timelapse.MP4",
       "start": "0:14",
       "end": "0:20"
     },
@@ -609,7 +609,7 @@
   {
     "id": "multi-03",
     "format": "multi",
-    "raw": "[{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}, {\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\"}, {\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\"}]",
+    "raw": "[{\"file\": \"timelapse.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}, {\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\"}, {\"file\": \"DJI_20260719084815_0042_D.MP4\", \"start\": \"0:29\", \"end\": \"0:36\"}]",
     "parsed_list": 1,
     "slots_exact": 3,
     "slots_file": 3,

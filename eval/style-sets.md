@@ -17,7 +17,7 @@ pick and every training example).
 | fresh | DJI_20260719101336_0037_D.MP4 0:01-0:07 | v5 pick 0 'Arrival on Yanqing Road': whole storefront, awning and plane trees, people outside |
 | silicon-valley | DJI_20260719101632_0047_D.MP4 0:05-0:11 | v5 pick 7 'The Agent era, on title': the most legible title slide of the day |
 | glamour | DJI_20260719092043_0007_D.MP4 0:00-0:04 | v5 pick 10 'Audience with a gimbal': a quick audience close-up, energy in the seats |
-| hollywood | 延时.MP4 0:06-0:14 | v5 pick 1 'The room fills up': timelapse of the audience arriving under the paper lanterns |
+| hollywood | timelapse.MP4 0:06-0:14 | v5 pick 1 'The room fills up': timelapse of the audience arriving under the paper lanterns |
 
 ## Set 2 — one more clip for the recap
 
@@ -44,7 +44,7 @@ pick and every training example).
 | fresh | DJI_20260719094910_0025_D.MP4 0:00-0:06 | Shot list: EXTERIOR street: close-up of people outside (woman with a phone, men chatting) under the plane trees |
 | silicon-valley | DJI_20260719072352_0033_D.MP4 0:13-0:19 | Shot list: man in striped shirt presents at the big screen; screen shows Chinese AI-native tools slides |
 | glamour | DJI_20260719073634_0037_D.MP4 0:50-0:56 | Shot list: camera pans to a close-up of audience members watching |
-| hollywood | 延时.MP4 0:14-0:20 | Shot list: timelapse continues — the room keeps filling, same sweeping scale as the opening beat |
+| hollywood | timelapse.MP4 0:14-0:20 | Shot list: timelapse continues — the room keeps filling, same sweeping scale as the opening beat |
 
 ## How to add a fifth set (for a new video)
 

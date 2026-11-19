@@ -17,12 +17,12 @@
   {
     "id": "mc-02",
     "format": "mc",
-    "raw": "The user wants me to pick the candidate segment that fits \"The room fills up\" — timelapse of audience arriving under paper lanterns, opening beat.\n\nOption C is literally \"Timelapse of the whole cafe room filling up: the audience arrives and takes their seats, the big screen glows blue, paper lanterns hang overhead\". That's the match.\n\nOption D has a motion-blurred camera swing, not readable, and it's presenting. Not fit.\n\nAnswer just letter and clip file + start/end.C: 延时.MP4 0:06-0:14",
+    "raw": "The user wants me to pick the candidate segment that fits \"The room fills up\" — timelapse of audience arriving under paper lanterns, opening beat.\n\nOption C is literally \"Timelapse of the whole cafe room filling up: the audience arrives and takes their seats, the big screen glows blue, paper lanterns hang overhead\". That's the match.\n\nOption D has a motion-blurred camera swing, not readable, and it's presenting. Not fit.\n\nAnswer just letter and clip file + start/end.C: timelapse.MP4 0:06-0:14",
     "letter": "C",
     "by_letter": 1,
     "by_clip": 0,
     "pred_clip": {
-      "file": "延时.MP4",
+      "file": "timelapse.MP4",
       "start": "0:06",
       "end": "0:14"
     },
@@ -342,7 +342,7 @@
     "id": "style-1-glamour",
     "format": "style-mc",
     "style": "glamour",
-    "raw": "We need answer which candidate segment fits glamour style for Cafe Cursor Shanghai recap July 19 2026. Need choose one clip or None. Need inspect descriptions.\n\nTask: cutting recap into short clips. Style: glamour — polished and beautiful: close-ups, warm light, people at their best, a frame worth a poster.\n\nNeed one more clip. Candidates:\nA. DJI...0007 0:00-0:04: Close-up of audience members (man in cap, woman, young man holding camera/gimbal) / Wide room; presenter (man in white tee) at screen, audience seated\nB. 延时.MP4 0:06-0:14: Timelapse of whole cafe room filling up: audience arrives and seats, big screen glows blue, paper lanterns overhead\nC. DJI...0047 0:05-0:11: Man in light grey suit and white cap presents at big screen; audience seated; screen shows title slide 'Agent era...' / Carl Yang in light grey suit and white cap speaks into mic; screen behind him shows Agent/Harness title slide and intro profile\nD. DJI...0037 0:01-0:07: EXTERIOR: whole storefront and awning, people at door, street with plane trees\n\nNeed infer best fit for glamour. Glamour = polished/beautiful close-ups warm light people at best poster frame. A includes close-up of audience members, but maybe not necessarily polished? It has close-up and wide room. B timelapse whole room filling up, big screen blue, lanterns; could be beautiful but timelapse not close-up/people at best? C is presenter at screen with title slide; more informational, not glamour. D exterior storefront, not people close-up. A l",
+    "raw": "We need answer which candidate segment fits glamour style for Cafe Cursor Shanghai recap July 19 2026. Need choose one clip or None. Need inspect descriptions.\n\nTask: cutting recap into short clips. Style: glamour — polished and beautiful: close-ups, warm light, people at their best, a frame worth a poster.\n\nNeed one more clip. Candidates:\nA. DJI...0007 0:00-0:04: Close-up of audience members (man in cap, woman, young man holding camera/gimbal) / Wide room; presenter (man in white tee) at screen, audience seated\nB. timelapse.MP4 0:06-0:14: Timelapse of whole cafe room filling up: audience arrives and seats, big screen glows blue, paper lanterns overhead\nC. DJI...0047 0:05-0:11: Man in light grey suit and white cap presents at big screen; audience seated; screen shows title slide 'Agent era...' / Carl Yang in light grey suit and white cap speaks into mic; screen behind him shows Agent/Harness title slide and intro profile\nD. DJI...0037 0:01-0:07: EXTERIOR: whole storefront and awning, people at door, street with plane trees\n\nNeed infer best fit for glamour. Glamour = polished/beautiful close-ups warm light people at best poster frame. A includes close-up of audience members, but maybe not necessarily polished? It has close-up and wide room. B timelapse whole room filling up, big screen blue, lanterns; could be beautiful but timelapse not close-up/people at best? C is presenter at screen with title slide; more informational, not glamour. D exterior storefront, not people close-up. A l",
     "letter": "A",
     "by_letter": 1,
     "by_clip": 0,
@@ -358,7 +358,7 @@
     "id": "style-1-hollywood",
     "format": "style-mc",
     "style": "hollywood",
-    "raw": "We need answer which candidate segment fits Hollywood style: drama and peak emotion: room reacting, scale, biggest beat of day, cinematic sweep. Need choose one clip. Need inspect options.\n\nWe need answer just letter and clip file + start/end, or None.\n\nLet's parse candidates:\nA. DJI...0007 0:00-0:04: Close-up audience members / Wide room; presenter at screen, audience seated. This includes room reacting? close-up audience and wide room. But only 4 sec, maybe not biggest beat.\nB. 延时.MP4 0:06-0:14: Timelapse of whole cafe room filling up: audience arrives and seats, big screen glows blue, paper lanterns overhead. This shows scale and cinematic sweep? Timelapse of room filling up is cinematic, scale, but not peak emotion or biggest beat; it's arrival/setup.\nC. Exterior storefront: not room reacting, not biggest beat.\nD. Man in light grey suit presents at big screen; screen shows title slide 'Agent era...' / Carl Yang speaks into mic; screen behind shows title slide and intro profile. This is a presentation moment, maybe biggest beat? But style asks drama and peak emotion: room reacting, scale, biggest beat of day, cinematic sweep. D is a speaker at screen, not audience reaction. A has audience close-up and wide room; could capture room reacting. But A description: close-up of audience members (man in cap, woman, young man holding camera/gimbal) / Wide room; presenter at screen, audience seated. It doesn't explicitly say reaction or peak emotion. B is timelapse whole room fillin",
+    "raw": "We need answer which candidate segment fits Hollywood style: drama and peak emotion: room reacting, scale, biggest beat of day, cinematic sweep. Need choose one clip. Need inspect options.\n\nWe need answer just letter and clip file + start/end, or None.\n\nLet's parse candidates:\nA. DJI...0007 0:00-0:04: Close-up audience members / Wide room; presenter at screen, audience seated. This includes room reacting? close-up audience and wide room. But only 4 sec, maybe not biggest beat.\nB. timelapse.MP4 0:06-0:14: Timelapse of whole cafe room filling up: audience arrives and seats, big screen glows blue, paper lanterns overhead. This shows scale and cinematic sweep? Timelapse of room filling up is cinematic, scale, but not peak emotion or biggest beat; it's arrival/setup.\nC. Exterior storefront: not room reacting, not biggest beat.\nD. Man in light grey suit presents at big screen; screen shows title slide 'Agent era...' / Carl Yang speaks into mic; screen behind shows title slide and intro profile. This is a presentation moment, maybe biggest beat? But style asks drama and peak emotion: room reacting, scale, biggest beat of day, cinematic sweep. D is a speaker at screen, not audience reaction. A has audience close-up and wide room; could capture room reacting. But A description: close-up of audience members (man in cap, woman, young man holding camera/gimbal) / Wide room; presenter at screen, audience seated. It doesn't explicitly say reaction or peak emotion. B is timelapse whole room fillin",
     "letter": "A",
     "by_letter": 0,
     "by_clip": 0,
@@ -507,7 +507,7 @@
     "by_letter": 0,
     "by_clip": 0,
     "pred_clip": {
-      "file": "延时.MP4",
+      "file": "timelapse.MP4",
       "start": "0:14",
       "end": "0:20"
     },
@@ -523,7 +523,7 @@
     "by_letter": 0,
     "by_clip": 0,
     "pred_clip": {
-      "file": "延时.MP4",
+      "file": "timelapse.MP4",
       "start": "0:14",
       "end": "0:20"
     },
@@ -679,7 +679,7 @@
   {
     "id": "multi-03",
     "format": "multi",
-    "raw": "We need answer JSON list only. Need pick one candidate per beat in order.\n\nNeed analyze candidates.\n\nBeat1: room fills up timelapse. Candidate A exactly timelapse whole cafe room filling up. Pick A.\n\nBeat2: Enterprise Harness, in detail — clearest big topic takeaway, dense Harness tables and architecture diagrams delivered by speaker room locked onto. Candidates C and G are Carl Yang Harness. C: detailed Harness slides; screen shows dense tables and architecture diagrams. G: speaks into mic; screen behind shows Agent/Harness title slide and intro profile. Beat asks in detail, dense tables/diagrams, so C.\n\nBeat3: A woman demos her phone app — woman presents own phone app with springboard screen behind her, everyday build told in her own words. Candidates D and maybe B/H are young man phone chat app. D: Close-up of woman presenter (green tee, cap) speaking into mic beside phone-app screen. It doesn't explicitly say springboard screen behind her, but woman presenter beside phone-app screen. B/H are young man, not woman. So D.\n\nNeed output JSON list of 3 clips in beat order with file/start/end. Use exact file names and times from candidates. A: 延时.MP4 start 0:06 end 0:14. C: DJI_20260719103001_0048_D.MP4 0:08-0:15. D: DJI_20260719084815_0042_D.MP4 0:29-0:36.\n\nNeed no other text. Ensure valid JSON. Use Chinese filename okay.[{\"file\": \"延时.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}, {\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\"}, {\"file\": \"DJI_20260719084815_00",
+    "raw": "We need answer JSON list only. Need pick one candidate per beat in order.\n\nNeed analyze candidates.\n\nBeat1: room fills up timelapse. Candidate A exactly timelapse whole cafe room filling up. Pick A.\n\nBeat2: Enterprise Harness, in detail — clearest big topic takeaway, dense Harness tables and architecture diagrams delivered by speaker room locked onto. Candidates C and G are Carl Yang Harness. C: detailed Harness slides; screen shows dense tables and architecture diagrams. G: speaks into mic; screen behind shows Agent/Harness title slide and intro profile. Beat asks in detail, dense tables/diagrams, so C.\n\nBeat3: A woman demos her phone app — woman presents own phone app with springboard screen behind her, everyday build told in her own words. Candidates D and maybe B/H are young man phone chat app. D: Close-up of woman presenter (green tee, cap) speaking into mic beside phone-app screen. It doesn't explicitly say springboard screen behind her, but woman presenter beside phone-app screen. B/H are young man, not woman. So D.\n\nNeed output JSON list of 3 clips in beat order with file/start/end. Use exact file names and times from candidates. A: timelapse.MP4 start 0:06 end 0:14. C: DJI_20260719103001_0048_D.MP4 0:08-0:15. D: DJI_20260719084815_0042_D.MP4 0:29-0:36.\n\nNeed no other text. Ensure valid JSON. Use Chinese filename okay.[{\"file\": \"timelapse.MP4\", \"start\": \"0:06\", \"end\": \"0:14\"}, {\"file\": \"DJI_20260719103001_0048_D.MP4\", \"start\": \"0:08\", \"end\": \"0:15\"}, {\"file\": \"DJI_20260719084815_00",
     "parsed_list": 0,
     "slots_exact": 0,
     "slots_file": 0,
