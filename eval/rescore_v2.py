@@ -1,7 +1,7 @@
 """Re-score saved eval runs (v2) with the shared scorer.
 
 Usage:
-  /home/hatch/tinker-venv/bin/python eval/rescore_v2.py eval/v2-base.json [eval/v2-v1.json ...]
+  uv run python eval/rescore_v2.py eval/v2-base.json [eval/v2-v1.json ...]
 Reads the raw outputs back through scoring.score_item and prints the summary.
 Writes <name>-rescored.json next to each input.
 """

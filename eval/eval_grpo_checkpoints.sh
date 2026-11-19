@@ -3,9 +3,10 @@
 # Paths are read from eval/grpo-run.log (CHECKPOINT lines), so this runs
 # hands-free right after the GRPO loop finishes.
 # Usage: bash eval/eval_grpo_checkpoints.sh
+# First: uv sync --extra train; export TINKER_API_KEY in your environment.
 set -e
 cd "$(dirname "$0")/.."
-PY=/home/hatch/tinker-venv/bin/python
+PY="uv run python"
 for step in 20 40 60; do
   path=$(grep "CHECKPOINT step $step:" eval/grpo-run.log | sed 's/.*path=//')
   if [ -z "$path" ]; then

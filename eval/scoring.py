@@ -165,7 +165,7 @@ def score_item(item, text):
             out["slots_exact"] = exact
             out["slots_file"] = fmatch
             out["n_returned"] = len(clips)
-            out["correct"] = 1 if exact == len(gold_clips) else 0
+            out["correct"] = 1 if len(clips) == len(gold_clips) and exact == len(gold_clips) else 0
     else:
         raise ValueError(f"unknown format {fmt}")
     return out

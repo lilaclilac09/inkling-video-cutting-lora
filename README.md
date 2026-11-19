@@ -7,6 +7,10 @@ shape a cutter script can consume without a human fixing the JSON.
 Built on the Cafe Cursor Shanghai footage. The long-term shape of the project — a Drive
 link in, a styled video out — is in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
+Start with [`SPEC.md`](SPEC.md): my current contracts, winner, acceptance gates,
+CPU/GPU compute plan and next steps. The one-clip harness below is separate from
+the winner's letter / multi-pick / None template contract.
+
 ## The three files
 
 This repo follows the same architecture as [`autoresearch-course`](https://github.com/lilaclilac09/autoresearch-course):
@@ -79,11 +83,13 @@ the rows it did get right is noise.
 
 ## Current state
 
-- **v1** (`lora-training-run.log`, checkpoint `inkling-video-cutting-v1`) trained 10 steps
-  on 27 rows and dropped train loss 2.2364 → 0.1749. It has **no comparable score**: it
-  predates this harness, and its own log shows 0 of 2 answers matching the schema.
-- **v2 harness** is in place and verified with a stub model. No real Inkling run has been
-  scored yet — that is the next step, and it needs a Tinker key on the machine doing it.
+- **Winner: v3-grpo-20**, 39/52 on eval v2: mc 11/11, style 14/16,
+  stability 6/6 (pairs 3/3), multi 4/4, traps 4/4, open-window sft exact 0/11.
+  See [results and checkpoint](RESULTS-2026-11-18.md) and [template](STYLE_TEMPLATE.md).
+- **Real baselines are scored**: base 15/52, v1 26/52, v2 32/52.
+  These template scores are separate from the fixed one-clip harness ledger.
+- **Remaining gap:** exact open-generation windows (file match 1.00, mean IoU 0.36).
+  Training and sampling use remote Tinker GPUs; no local GPU is needed.
 - **Data** is now 31 rows, the union of the old 27 plus the 4 afternoon moments that
   existed only in the sibling repo. See [`DATA_CARD.md`](DATA_CARD.md).
 
@@ -95,7 +101,14 @@ train.py                experiment target: hyperparameters + Tinker SFT
 program.md              research protocol
 results.tsv             run ledger
 data/picks.jsonl        31 approved picks
-tests/test_prepare.py   contract, scoring, split, ratchet tests
+SPEC.md                 current owner spec, contracts, compute and next work
+STYLE_TEMPLATE.md       style-parameterized winner prompt and output shapes
+RESULTS-2026-11-18.md   winner, leaderboard, historical cost/storage
+eval/                   fixed v2 set, shared scoring, runners, saved results
+eval/tinker_env.py      shared portable API-key/proxy setup
+run_sft_v2.py           portable SFT reproduction launcher
+run_sft_v3.py           portable refusal-SFT launcher
+tests/                  harness, scoring, eval integrity, reproducibility, dry-run
 docs/ROADMAP.md         Drive link in, styled video out
 lora-training-run.log   the v1 run, kept as history
 ```

@@ -1,11 +1,11 @@
 """Generic eval runner: score a model on an eval JSONL (v1 or v2).
 
-Sampling only — no training. Usage (tinker-venv python):
-  /home/hatch/tinker-venv/bin/python eval/run_eval.py \
+Sampling only — no training. Usage (after uv sync --extra train):
+  uv run python eval/run_eval.py \
       --eval-path eval/eval-set-v2.jsonl --model base --out eval/v2-base.json
-  /home/hatch/tinker-venv/bin/python eval/run_eval.py \
+  uv run python eval/run_eval.py \
       --eval-path eval/eval-set-v2.jsonl --model v1 --out eval/v2-v1.json
-  /home/hatch/tinker-venv/bin/python eval/run_eval.py \
+  uv run python eval/run_eval.py \
       --eval-path eval/eval-set-v2.jsonl --model custom \
       --model-path 'tinker://.../sampler_weights/<name>' --out eval/v2-v2.json
 
@@ -20,7 +20,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from scoring import score_item, summarize  # noqa: E402
 
-sys.path.insert(0, "/opt/muse/skills/custom-connector-setup/bin")
+from tinker_env import setup_tinker
 
 BASE_MODEL = "thinkingmachines/Inkling-2-Small"
 V1_PATH = "tinker://d26e013b-64d9-5c5f-9b7d-713a2fc54286:train:0/sampler_weights/inkling-video-cutting-v1"
@@ -44,25 +44,9 @@ async def main():
         os.path.dirname(os.path.abspath(__file__)), "eval-set-v2.jsonl"
     )
 
-    for _k in ("no_proxy", "NO_PROXY"):
-        _v = os.environ.get(_k, "")
-        if _v:
-            os.environ[_k] = ",".join(p for p in _v.split(",") if not p.strip().startswith("["))
-
-    from dynamic_credentials import dynamic_credential_entry
-
-    _entry = dynamic_credential_entry("custom.tinker", "access_token")
-    os.environ["TINKER_API_KEY"] = _entry["surrogate"]
-    print("Tinker credential loaded (surrogate, prefix hsurr:).", flush=True)
+    setup_tinker()
 
     import tinker
-    from tinker.lib import _auth_token_provider as auth_mod
-
-    def _patched_init(self, api_key: str) -> None:
-        self._token = api_key
-        self._expires_at = auth_mod._credential_expiry(api_key)
-
-    auth_mod.ApiKeyAuthProvider.__init__ = _patched_init
 
     from transformers import AutoTokenizer
 

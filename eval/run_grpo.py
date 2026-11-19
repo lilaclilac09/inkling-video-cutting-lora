@@ -21,8 +21,8 @@ tens of dollars; token counts are logged per step so spend stays visible).
 If any step fails 3 times in a row, or create_training_client_from_state
 rejects the state path, the script stops and says exactly why.
 
-Usage (tinker-venv python):
-  /home/hatch/tinker-venv/bin/python eval/run_grpo.py \
+Usage (after uv sync --extra train):
+  uv run python eval/run_grpo.py \
       --steps 60 --group-size 8 --prompts-per-step 4 --lr 1e-5 \
       --state-path 'tinker://.../weights/inkling-video-cutting-v2-state'
 """
@@ -37,7 +37,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from scoring import score_item  # noqa: E402
 
-sys.path.insert(0, "/opt/muse/skills/custom-connector-setup/bin")
+from tinker_env import setup_tinker
 
 BASE_MODEL = "thinkingmachines/Inkling-2-Small"
 DEFAULT_STATE = "tinker://0059270a-eeab-5add-bf67-b9f39ee0a5cb:train:0/weights/inkling-video-cutting-v2-state"
@@ -79,25 +79,9 @@ async def main():
         logf.write(msg + "\n")
         logf.flush()
 
-    for _k in ("no_proxy", "NO_PROXY"):
-        _v = os.environ.get(_k, "")
-        if _v:
-            os.environ[_k] = ",".join(p for p in _v.split(",") if not p.strip().startswith("["))
-
-    from dynamic_credentials import dynamic_credential_entry
-
-    _entry = dynamic_credential_entry("custom.tinker", "access_token")
-    os.environ["TINKER_API_KEY"] = _entry["surrogate"]
-    log("Tinker credential loaded (surrogate, prefix hsurr:).")
+    setup_tinker()
 
     import tinker
-    from tinker.lib import _auth_token_provider as auth_mod
-
-    def _patched_init(self, api_key: str) -> None:
-        self._token = api_key
-        self._expires_at = auth_mod._credential_expiry(api_key)
-
-    auth_mod.ApiKeyAuthProvider.__init__ = _patched_init
 
     from transformers import AutoTokenizer
 
