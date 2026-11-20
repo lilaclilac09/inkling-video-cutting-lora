@@ -3,12 +3,15 @@
 Usage: uv run python run_sft_v2.py (after uv sync --extra train).
 Set TINKER_API_KEY before running; training uses remote GPUs.
 """
+import argparse
 import os
 import runpy
 import sys
 from pathlib import Path
 
 from eval.tinker_env import setup_tinker
+
+argparse.ArgumentParser(description=__doc__).parse_args()
 
 setup_tinker()
 

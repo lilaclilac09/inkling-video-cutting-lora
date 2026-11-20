@@ -17,3 +17,4 @@ dev = ["pytest>=8"]
 testpaths = ["tests"]
 pythonpath = ["."]
 addopts = "-q"
+markers = ["smoke: fast offline subprocess checks of public entry points"]
