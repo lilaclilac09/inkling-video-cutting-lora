@@ -7,3 +7,4 @@ __pycache__/
 # dry-run stub outputs (not real evals)
 runs/dry-*/
 clips/
+my-request.json

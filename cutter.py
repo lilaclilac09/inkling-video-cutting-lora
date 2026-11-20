@@ -40,8 +40,10 @@ def load_request(path: str | Path) -> dict:
     style = request.get("style")
     if not isinstance(style, str) or not re.fullmatch(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*", style):
         raise ResolveError("style must be a non-empty lowercase slug, e.g. my-calm-recap")
-    if request.get("style") not in STYLES and not request.get("style_brief"):
-        raise ResolveError(f"style must be one of {', '.join(STYLES)}, or supply style_brief")
+    if style not in STYLES and not (request.get("style_brief") or request.get("style_description")):
+        raise ResolveError(
+            f"style must be one of {', '.join(STYLES)}, or supply style_brief or style_description"
+        )
     beats = request.setdefault("beats", [])
     candidates = request.get("candidates") or []
     if len(beats) > 3:
@@ -64,7 +66,7 @@ def _candidate_lines(candidates: list[dict]) -> str:
 
 def build_prompt(request: dict) -> str:
     style = request["style"]
-    brief = request.get("style_brief") or STYLES[style]
+    brief = request.get("style_brief") or STYLES.get(style) or request["style_description"]
     head = (
         f"You are cutting the {request['event']} recap ({request['date']}) into short clips.\n\n"
         f"Style: {style} — {brief}\n\n"
@@ -165,8 +167,21 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--footage", default=".", help="directory holding the source files")
     c.add_argument("--out", default="clips", help="where cut clips are written")
     c.add_argument("--dry-run", action="store_true", help="print ffmpeg commands only")
+    sub.add_parser("welcome", help="show the welcome screen and intro slides")
+    i = sub.add_parser("init", help="answer a few questions and write a request JSON")
+    i.add_argument("--out", default="my-request.json")
     args = parser.parse_args(argv)
 
+    if args.command in {"welcome", "init"}:
+        import onboarding
+
+        if args.command == "welcome":
+            return onboarding.welcome()
+        try:
+            return onboarding.init(args.out)
+        except (EOFError, KeyboardInterrupt):
+            print("\ncancelled", file=sys.stderr)
+            return 1
     try:
         request = load_request(args.request)
         if args.command == "prompt":

@@ -9,6 +9,12 @@ and cuts it with ffmpeg.
 ## 1. Install and verify (CPU only, no spend)
 
 ```bash
+./install.sh        # checks uv and ffmpeg, installs, verifies, shows the intro slides
+```
+
+Or step by step:
+
+```bash
 uv sync
 uv run pytest
 uv run python prepare.py --self-check   # must print self-check: pass
@@ -22,6 +28,18 @@ A request is JSON: event, date, style, 0–3 beats and **real** candidate window
 [`examples/request-single.json`](../examples/request-single.json) and
 [`examples/request-multi.json`](../examples/request-multi.json).
 Styles: `vlog`, `fresh`, `silicon-valley`, `glamour`, `hollywood`.
+
+The quickest way to write one is the guided builder, which asks for each field
+and saves a request the cutter accepts:
+
+```bash
+uv run python cutter.py init --out my-request.json
+```
+
+For your own look, pick "Your own style" (or set `"style": "<name>"` plus a
+one-sentence `"style_description"` in the JSON). The LoRA was trained on the
+five styles above, so a custom style is best effort: check its picks before
+relying on it. `uv run python cutter.py welcome` replays the intro slides.
 
 ```bash
 uv run python cutter.py prompt examples/request-single.json
@@ -116,7 +134,9 @@ uv run python cutter.py cut examples/request-multi.json @answer.txt --footage /p
    ```
 
    For new footage I use my style slug plus `"style_brief": "..."` in the cutter
-   request. The same `cutter.build_prompt` and `cutter.resolve` still build
+   request. The guided builder's `style_description` is also accepted for custom
+   styles; an explicit `style_brief` takes precedence. The same
+   `cutter.build_prompt` and `cutter.resolve` still build
    prompts and validate selections; training does not make the model watch video.
 
 ## Walkthrough videos
@@ -124,4 +144,6 @@ uv run python cutter.py cut examples/request-multi.json @answer.txt --footage /p
 [`docs/walkthroughs/`](walkthroughs/) holds the scripts the walkthrough videos
 were recorded from (`asciinema rec -c "bash docs/walkthroughs/01-setup.sh"`):
 `01-setup.sh`, `02-cut-clips.sh` (synthetic test-pattern footage named like the
-real files) and `03-real-model.sh` (Tinker setup, shown but not run).
+real files), `03-real-model.sh` (Tinker setup, shown but not run) and
+`04-install-and-init.py` (`./install.sh`, the intro slides and `cutter.py init`;
+record it with `asciinema rec -c "python3 docs/walkthroughs/04-install-and-init.py"`).
