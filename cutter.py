@@ -37,8 +37,10 @@ class ResolveError(ValueError):
 
 def load_request(path: str | Path) -> dict:
     request = json.loads(Path(path).read_text(encoding="utf-8"))
-    if request.get("style") not in STYLES:
-        raise ResolveError(f"style must be one of {', '.join(STYLES)}")
+    if request.get("style") not in STYLES and not request.get("style_description"):
+        raise ResolveError(
+            f"style must be one of {', '.join(STYLES)}, or set style_description for your own"
+        )
     beats = request.setdefault("beats", [])
     candidates = request.get("candidates") or []
     if len(beats) > 3:
@@ -63,7 +65,7 @@ def build_prompt(request: dict) -> str:
     style = request["style"]
     head = (
         f"You are cutting the {request['event']} recap ({request['date']}) into short clips.\n\n"
-        f"Style: {style} — {STYLES[style]}\n\n"
+        f"Style: {style} — {STYLES.get(style) or request['style_description']}\n\n"
     )
     beats = request["beats"]
     candidates = _candidate_lines(request["candidates"])
@@ -161,8 +163,21 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--footage", default=".", help="directory holding the source files")
     c.add_argument("--out", default="clips", help="where cut clips are written")
     c.add_argument("--dry-run", action="store_true", help="print ffmpeg commands only")
+    sub.add_parser("welcome", help="show the welcome screen and intro slides")
+    i = sub.add_parser("init", help="answer a few questions and write a request JSON")
+    i.add_argument("--out", default="my-request.json")
     args = parser.parse_args(argv)
 
+    if args.command in {"welcome", "init"}:
+        import onboarding
+
+        if args.command == "welcome":
+            return onboarding.welcome()
+        try:
+            return onboarding.init(args.out)
+        except (EOFError, KeyboardInterrupt):
+            print("\ncancelled", file=sys.stderr)
+            return 1
     try:
         request = load_request(args.request)
         if args.command == "prompt":
