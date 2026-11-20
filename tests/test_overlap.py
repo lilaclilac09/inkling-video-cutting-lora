@@ -54,6 +54,18 @@ def test_overlap_cli_missing_and_empty(tmp_path, capsys):
     assert "0/52 eval items overlap" in capsys.readouterr().out
 
 
+@pytest.mark.parametrize("start,end", [
+    ("1:00:01", "1:00:07"),
+    ("60:01", "1:00:07"),
+    ("1:00:01", "60:07"),
+])
+def test_hour_timestamp_candidates(start, end):
+    rows = [{"prompt": f"A. a.MP4 {start}-{end}: candidate"}]
+    items = [{"id": "hour", "gold": {"clip": clip(start="60:02", end="60:06")}}]
+    assert training_windows(rows) == [("a.MP4", 3601, 3607)]
+    assert set(find_overlaps(items, rows)) == {"hour"}
+
+
 # mc, style-mc, stability, multi, sft, trap correct counts on the common 47 items.
 EXPECTED = {
     "v2-base": (2, 7, 3, 0, 0, 0),

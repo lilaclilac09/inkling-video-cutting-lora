@@ -24,7 +24,7 @@ AUDIT_TRAINING = (
     ROOT / "eval/grpo-prompts-v2.jsonl",
 )
 OPTION = re.compile(
-    r"(?m)^[A-H]\. (\S+\.MP4) (\d+:\d+)-(\d+:\d+):"
+    r"(?m)^[A-H]\. (\S+\.MP4) (\d+:\d+(?::\d+)?)-(\d+:\d+(?::\d+)?):"
 )
 
 
