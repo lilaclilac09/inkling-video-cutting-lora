@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Walkthrough 2: integrate the winner into a cutter: request -> prompt -> answer -> clips.
+source "$(dirname "$0")/lib.sh"
+FOOTAGE=${FOOTAGE:-/tmp/inkling-demo-footage}
+say "Setup for this demo only: synthetic 30 s stand-in clips named like the real footage"
+run "uv run python docs/walkthroughs/make_demo_footage.py $FOOTAGE examples/request-single.json examples/request-multi.json"
+say "1. Describe your cut: event, style, beats and REAL candidate windows"
+run "head -n 14 examples/request-single.json"
+say "2. Build the exact STYLE_TEMPLATE prompt (byte-identical to the eval prompts)"
+run "uv run python cutter.py prompt examples/request-single.json"
+say "3. Send the prompt to the winner checkpoint; it answers with a letter + window"
+run "ANSWER='C: DJI_20260719101336_0037_D.MP4 0:01-0:07'"
+say "4. Resolve the answer against the candidates and cut it with ffmpeg"
+run "uv run python cutter.py cut examples/request-single.json \"\$ANSWER\" --footage $FOOTAGE --out clips"
+run "ffprobe -v error -show_entries format=duration -of csv=p=0 clips/*.mp4"
+say "5. Multi-pick: 3 beats, 8 candidates, one call; the answer is a JSON list"
+run "uv run python cutter.py prompt examples/request-multi.json | tail -n 13"
+run "ANSWER='[{\"file\": \"DJI_20260719101336_0037_D.MP4\", \"start\": \"0:01\", \"end\": \"0:07\"}, {\"file\": \"DJI_20260719101632_0047_D.MP4\", \"start\": \"0:05\", \"end\": \"0:11\"}, {\"file\": \"DJI_20260719104432_0054_D.MP4\", \"start\": \"0:01\", \"end\": \"0:06\"}]'"
+run "uv run python cutter.py cut examples/request-multi.json \"\$ANSWER\" --footage $FOOTAGE --out clips"
+say "6. Guard rails: a refusal cuts nothing, an invented window is rejected"
+run "uv run python cutter.py cut examples/request-single.json None"
+run "uv run python cutter.py cut examples/request-single.json 'C: DJI_20260719101336_0037_D.MP4 0:01-0:30'"
+run "ls clips/"

@@ -7,6 +7,8 @@ shape a cutter script can consume without a human fixing the JSON.
 Built on the Cafe Cursor Shanghai footage. The long-term shape of the project — a Drive
 link in, a styled video out — is in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
+To use the model on your own footage, see [`docs/INTEGRATION.md`](docs/INTEGRATION.md).
+
 Start with [`SPEC.md`](SPEC.md): my current contracts, winner, acceptance gates,
 CPU/GPU compute plan and next steps. The one-clip harness below is separate from
 the winner's letter / multi-pick / None template contract.
