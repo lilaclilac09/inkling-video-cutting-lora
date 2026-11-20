@@ -32,6 +32,7 @@ Styles (values of the template's `style` parameter):
 Deterministic: fixed seed 42. v1 items are copied byte-identical from
 eval-set-v1.jsonl (never regenerated), so v1 scores stay comparable.
 """
+import argparse
 import json
 import random
 import sys
@@ -126,7 +127,11 @@ MULTI_SEQS = [
 ]
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--v1-path", default=V1_PATH)
+    parser.add_argument("--out", default=OUT_PATH)
+    args = parser.parse_args(argv)
     picks = load_jsonl(PICKS_PATH)
     train = load_jsonl(TRAIN_PATH)
     shots = load_jsonl(SHOT_PATH)
@@ -170,7 +175,7 @@ def main():
         return " / ".join(parts) if parts else "(no shot description)"
 
     # --- v1 items, copied verbatim.
-    v1_bytes = Path(V1_PATH).read_bytes()
+    v1_bytes = Path(args.v1_path).read_bytes()
     v1 = [json.loads(l) for l in v1_bytes.splitlines() if l.strip()]
     items = list(v1)
     print(f"v1 items copied: {len(v1)}")
@@ -363,13 +368,13 @@ def main():
         })
     print(f"multi items: 4")
 
-    with open(OUT_PATH, "wb") as f:
+    with open(args.out, "wb") as f:
         f.write(v1_bytes)
         for it in items[len(v1):]:
             f.write((json.dumps(it, ensure_ascii=False) + "\n").encode("utf-8"))
 
     from collections import Counter
-    print(Counter(it["format"] for it in items), "items ->", OUT_PATH)
+    print(Counter(it["format"] for it in items), "items ->", args.out)
 
 
 if __name__ == "__main__":
