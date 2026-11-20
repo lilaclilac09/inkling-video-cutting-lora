@@ -129,7 +129,7 @@ def resolve(answer: str, request: dict) -> list[dict]:
         after_letter = re.search(rf"\b{letter}\b", text).end()
         named_file = re.sub(
             r"^\s*[:.)-]?\s*", "", text[after_letter : window.start()]
-        ).rstrip()
+        ).rstrip(" \t,;-")
     clip = {
         "file": named_file or chosen["file"],
         "start": window.group(1) if window else chosen["start"],

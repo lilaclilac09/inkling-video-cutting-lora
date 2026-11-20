@@ -35,6 +35,11 @@ def test_letter_and_named_window_must_agree():
         cutter.resolve("C: DJI_20260719101632_0047_D.MP4 0:05-0:11", request("request-single.json"))
 
 
+def test_dash_between_file_and_window_resolves():
+    answer = "C: DJI_20260719101336_0037_D.MP4 - 0:01-0:07"
+    assert cutter.resolve(answer, request("request-single.json"))
+
+
 @pytest.mark.parametrize(
     "answer",
     [
