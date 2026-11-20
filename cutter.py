@@ -37,8 +37,8 @@ class ResolveError(ValueError):
 
 def load_request(path: str | Path) -> dict:
     request = json.loads(Path(path).read_text(encoding="utf-8"))
-    if request.get("style") not in STYLES:
-        raise ResolveError(f"style must be one of {', '.join(STYLES)}")
+    if request.get("style") not in STYLES and not request.get("style_brief"):
+        raise ResolveError(f"style must be one of {', '.join(STYLES)}, or supply style_brief")
     beats = request.setdefault("beats", [])
     candidates = request.get("candidates") or []
     if len(beats) > 3:
@@ -61,9 +61,10 @@ def _candidate_lines(candidates: list[dict]) -> str:
 
 def build_prompt(request: dict) -> str:
     style = request["style"]
+    brief = request.get("style_brief") or STYLES[style]
     head = (
         f"You are cutting the {request['event']} recap ({request['date']}) into short clips.\n\n"
-        f"Style: {style} — {STYLES[style]}\n\n"
+        f"Style: {style} — {brief}\n\n"
     )
     beats = request["beats"]
     candidates = _candidate_lines(request["candidates"])
