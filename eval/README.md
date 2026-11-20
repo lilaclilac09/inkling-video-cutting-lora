@@ -31,7 +31,10 @@ Fixed benchmark. Same 26 questions every run, never trained on. Built 2026-11-18
 ## Files
 
 - `eval-set-v1.jsonl` — the 26 questions (prompt, gold, source, held-out evidence).
-- `build_eval_set.py` — deterministic builder (seed 42).
+- `build_eval_set.py` — my restored shared helpers, inferred from the callers,
+  not the historical v1 generator. I restored v1 as v2's byte-identical 26-line
+  prefix. I still need the original v5 picks and shot list to rebuild v2;
+  see [my provenance and overlap audit](../SPEC.md#eval-sets-and-scoring).
 - `run_baseline.py` — sampling-only baseline runner (base + v1 checkpoint).
 - `baseline-base.json` / `baseline-v1.json` — per-item results.
 - `run-log.md` — chronological run log (baselines, sweeps, costs, decisions).
