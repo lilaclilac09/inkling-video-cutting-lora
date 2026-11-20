@@ -1,0 +1,69 @@
+{
+  "event": "Cafe Cursor Shanghai",
+  "date": "July 19, 2026",
+  "style": "vlog",
+  "beats": [
+    {
+      "title": "Arrival on Yanqing Road",
+      "why": "Open on the whole storefront, awning and plane trees with people outside, so the viewer knows exactly where the day happens."
+    },
+    {
+      "title": "The Agent era, on title",
+      "why": "Carl Yang opens with the most legible title slide of the day (Agent era history and enterprise Harness solutions, dated 2026.7.11) - a clear, confident speaker front-facing to the room."
+    },
+    {
+      "title": "Chatting under the plane trees",
+      "why": "A breather outside - four people talking over drinks under the plane trees, the relaxed daily-life register that frames the whole event."
+    }
+  ],
+  "candidates": [
+    {
+      "file": "DJI_20260719082925_0040_D.MP4",
+      "start": "0:57",
+      "end": "1:03",
+      "description": "Camera moves closer; medium close-up of the grey-shirt presenter speaking into the mic"
+    },
+    {
+      "file": "DJI_20260719104432_0054_D.MP4",
+      "start": "0:01",
+      "end": "0:06",
+      "description": "EXTERIOR street: four people chatting under the plane trees. Note: exterior people close-up."
+    },
+    {
+      "file": "DJI_20260719101632_0047_D.MP4",
+      "start": "0:05",
+      "end": "0:11",
+      "description": "Man in light grey suit and white cap presents at the big screen; audience seated; screen shows the title slide 'Agent era: history and enterprise Harness solutions' / Carl Yang in a light grey suit and white cap speaks into a mic; the screen behind him shows his Agent/Harness title slide and intro profile"
+    },
+    {
+      "file": "DJI_20260719084244_0041_D.MP4",
+      "start": "0:09",
+      "end": "0:15",
+      "description": "Young man in black tee with glasses presents at the big screen; audience seated at tables; screen shows a phone chat app with Chinese text"
+    },
+    {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:01",
+      "end": "0:07",
+      "description": "Carl Yang continues his Agent/Harness talk; audience backs in the foreground; screen shows detailed slides with tables and text"
+    },
+    {
+      "file": "DJI_20260719082925_0040_D.MP4",
+      "start": "0:25",
+      "end": "0:31",
+      "description": "Camera moves closer; medium close-up of the grey-shirt presenter speaking into the mic"
+    },
+    {
+      "file": "DJI_20260719103001_0048_D.MP4",
+      "start": "0:19",
+      "end": "0:25",
+      "description": "Carl Yang in a light grey suit and white cap presents detailed Harness slides; the screen shows dense tables and architecture diagrams"
+    },
+    {
+      "file": "DJI_20260719101336_0037_D.MP4",
+      "start": "0:01",
+      "end": "0:07",
+      "description": "EXTERIOR: whole storefront and awning, people at the door, street with plane trees"
+    }
+  ]
+}
