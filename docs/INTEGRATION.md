@@ -17,6 +17,7 @@ Or step by step:
 ```bash
 uv sync
 uv run pytest
+uv run pytest -m smoke                 # my fast, offline CLI smoke check
 uv run python prepare.py --self-check   # must print self-check: pass
 uv run python train.py --dry-run        # stub model, writes nothing
 ```
