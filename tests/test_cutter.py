@@ -53,6 +53,12 @@ def test_fractional_or_wrong_file_windows_are_checked(answer):
             cutter.resolve(answer, request("request-single.json"))
 
 
+def test_file_names_with_leading_dot_resolve():
+    req = request("request-single.json")
+    req["candidates"][2]["file"] = "./intro.mp4"
+    assert cutter.resolve("C: ./intro.mp4 0:01-0:07", req) == [req["candidates"][2]]
+
+
 def test_file_names_with_spaces_resolve():
     req = request("request-single.json")
     req["candidates"][2]["file"] = "Day 1 exterior.mp4"
