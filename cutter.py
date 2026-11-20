@@ -37,6 +37,9 @@ class ResolveError(ValueError):
 
 def load_request(path: str | Path) -> dict:
     request = json.loads(Path(path).read_text(encoding="utf-8"))
+    style = request.get("style")
+    if not isinstance(style, str) or not re.fullmatch(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*", style):
+        raise ResolveError("style must be a non-empty lowercase slug, e.g. my-calm-recap")
     if request.get("style") not in STYLES and not request.get("style_brief"):
         raise ResolveError(f"style must be one of {', '.join(STYLES)}, or supply style_brief")
     beats = request.setdefault("beats", [])
