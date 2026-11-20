@@ -35,6 +35,28 @@ def test_letter_and_named_window_must_agree():
         cutter.resolve("C: DJI_20260719101632_0047_D.MP4 0:05-0:11", request("request-single.json"))
 
 
+@pytest.mark.parametrize(
+    "answer",
+    [
+        "C: DJI_20260719101336_0037_D.MP4 0:01.0-0:07.5",
+        "C: DJI_20260719101336_0037_D.MP4 0:01-0:07.9",
+        "C: DJI_20260719101632_0047_D.MP4 0:01-0:07",
+    ],
+)
+def test_fractional_or_wrong_file_windows_are_checked(answer):
+    if answer.endswith("0:07.5"):
+        assert cutter.resolve(answer, request("request-single.json"))
+    else:
+        with pytest.raises(cutter.ResolveError, match="disagree"):
+            cutter.resolve(answer, request("request-single.json"))
+
+
+def test_file_names_with_spaces_resolve():
+    req = request("request-single.json")
+    req["candidates"][2]["file"] = "Day 1 exterior.mp4"
+    assert cutter.resolve("C: Day 1 exterior.mp4 0:01-0:07", req) == [req["candidates"][2]]
+
+
 def test_none_is_a_refusal():
     assert cutter.resolve("None", request("request-single.json")) == []
 

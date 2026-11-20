@@ -122,11 +122,16 @@ def resolve(answer: str, request: dict) -> list[dict]:
     if letter is None or LETTERS.index(letter) >= len(candidates):
         raise ResolveError(f"no candidate letter in answer: {text!r}")
     chosen = candidates[LETTERS.index(letter)]
-    named = re.search(r"(\S+\.(?:mp4|mov|mkv))\s+(\d+:\d{2})\s*-\s*(\d+:\d{2})", text, re.I)
-    if named:
-        clip = {"file": named.group(1), "start": named.group(2), "end": named.group(3)}
-        if not clip_exact(clip, chosen):
-            raise ResolveError(f"letter {letter} and the named window disagree: {text!r}")
+    timestamp = r"\d+:\d{2}(?:\.\d+)?"
+    window = re.search(rf"({timestamp})\s*-\s*({timestamp})", text)
+    named_files = {c["file"] for c in candidates if c["file"] in text}
+    clip = {
+        "file": chosen["file"] if not named_files or chosen["file"] in named_files else None,
+        "start": window.group(1) if window else chosen["start"],
+        "end": window.group(2) if window else chosen["end"],
+    }
+    if not clip_exact(clip, chosen):
+        raise ResolveError(f"letter {letter} and the named window disagree: {text!r}")
     return [chosen]
 
 
