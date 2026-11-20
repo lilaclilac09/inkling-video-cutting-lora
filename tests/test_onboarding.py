@@ -57,6 +57,15 @@ def test_init_reasks_a_window_that_ends_before_it_starts(monkeypatch, tmp_path, 
     assert json.loads(out.read_text())["candidates"][0]["file"] == "clip0.mp4"
 
 
+@pytest.mark.parametrize("start, end", [("5", "0:09"), ("0:01", "00:01:10")])
+def test_init_reasks_a_timestamp_that_is_not_m_ss(monkeypatch, tmp_path, capsys, start, end):
+    out = tmp_path / "req.json"
+    answers(monkeypatch, ["E", "", "1", "", "a.mp4", start, end, *windows(4)])
+    onboarding.init(out)
+    assert "try again" in capsys.readouterr().out
+    assert json.loads(out.read_text())["candidates"][0]["file"] == "clip0.mp4"
+
+
 def test_unknown_style_without_description_is_rejected(tmp_path):
     path = tmp_path / "req.json"
     path.write_text(json.dumps({"style": "noir", "beats": [], "candidates": []}))

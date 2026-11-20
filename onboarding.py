@@ -8,6 +8,7 @@ from __future__ import annotations
 import datetime
 import json
 import os
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -117,16 +118,15 @@ def _ask_window(label: str) -> dict:
         file = _ask(f"{label} file")
         start = _ask(f"{label} start (M:SS)")
         end = _ask(f"{label} end (M:SS)")
-        try:
-            if parse_ts(end) > parse_ts(start):
-                return {
-                    "file": file,
-                    "start": start,
-                    "end": end,
-                    "description": _ask(f"{label} what is on screen"),
-                }
-        except ValueError:
-            pass
+        if all(re.fullmatch(r"\d+:\d{2}(?:\.\d+)?", t) for t in (start, end)) and (
+            parse_ts(end) > parse_ts(start)
+        ):
+            return {
+                "file": file,
+                "start": start,
+                "end": end,
+                "description": _ask(f"{label} what is on screen"),
+            }
         print("  end must be a later M:SS time than start; try again")
 
 
