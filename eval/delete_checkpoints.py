@@ -1,7 +1,7 @@
 """Delete Tinker checkpoints by tinker path (IRREVERSIBLE).
 
-Usage:
-  /home/hatch/tinker-venv/bin/python eval/delete_checkpoints.py <tinker-path> [...]
+Usage (after uv sync --extra train):
+  uv run python eval/delete_checkpoints.py <tinker-path> [...]
 
 Only delete checkpoints this project created tonight that are strictly
 dominated by a kept checkpoint (worse eval score, same lineage) or a
@@ -14,7 +14,7 @@ import json
 import os
 import sys
 
-sys.path.insert(0, "/opt/muse/skills/custom-connector-setup/bin")
+from tinker_env import setup_tinker
 
 
 async def main():
@@ -22,24 +22,9 @@ async def main():
     if not paths:
         raise SystemExit("usage: delete_checkpoints.py <tinker-path> [...]")
 
-    for _k in ("no_proxy", "NO_PROXY"):
-        _v = os.environ.get(_k, "")
-        if _v:
-            os.environ[_k] = ",".join(p for p in _v.split(",") if not p.strip().startswith("["))
-
-    from dynamic_credentials import dynamic_credential_entry
-
-    _entry = dynamic_credential_entry("custom.tinker", "access_token")
-    os.environ["TINKER_API_KEY"] = _entry["surrogate"]
+    setup_tinker()
 
     import tinker
-    from tinker.lib import _auth_token_provider as auth_mod
-
-    def _patched_init(self, api_key: str) -> None:
-        self._token = api_key
-        self._expires_at = auth_mod._credential_expiry(api_key)
-
-    auth_mod.ApiKeyAuthProvider.__init__ = _patched_init
 
     rc = tinker.RestClient()
     for p in paths:

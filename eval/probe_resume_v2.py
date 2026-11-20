@@ -6,37 +6,23 @@ client from it, snapshots an on-policy sampler, and runs one tiny sample —
 the exact first three calls the GRPO loop makes. No training steps, no
 meaningful spend. Exit 0 + OK lines = GRPO can start; anything else = stop
 and report the error before burning the sweep budget.
+
+Usage (after uv sync --extra train): uv run python eval/probe_resume_v2.py
 """
 import asyncio
 import os
 import sys
 
-sys.path.insert(0, "/opt/muse/skills/custom-connector-setup/bin")
+from tinker_env import setup_tinker
 
 STATE_PATH = "tinker://0059270a-eeab-5add-bf67-b9f39ee0a5cb:train:0/weights/inkling-video-cutting-v2-state"
 BASE_MODEL = "thinkingmachines/Inkling-2-Small"
 
 
 async def main():
-    for _k in ("no_proxy", "NO_PROXY"):
-        _v = os.environ.get(_k, "")
-        if _v:
-            os.environ[_k] = ",".join(p for p in _v.split(",") if not p.strip().startswith("["))
-
-    from dynamic_credentials import dynamic_credential_entry
-
-    _entry = dynamic_credential_entry("custom.tinker", "access_token")
-    os.environ["TINKER_API_KEY"] = _entry["surrogate"]
-    print("Tinker credential loaded (surrogate, prefix hsurr:).", flush=True)
+    setup_tinker()
 
     import tinker
-    from tinker.lib import _auth_token_provider as auth_mod
-
-    def _patched_init(self, api_key: str) -> None:
-        self._token = api_key
-        self._expires_at = auth_mod._credential_expiry(api_key)
-
-    auth_mod.ApiKeyAuthProvider.__init__ = _patched_init
 
     from transformers import AutoTokenizer
 
