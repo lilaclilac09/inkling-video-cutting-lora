@@ -4,7 +4,7 @@ Cut your event footage into shareable clips, in the style you pick.
 
 <p>
   <a href="RESULTS-2026-11-18.md"><img alt="Winner: v3-grpo-20" src="https://img.shields.io/badge/WINNER-v3--grpo--20-0a0a0a.svg?style=for-the-badge&labelColor=000000" height="28"></a>
-  <a href="RESULTS-2026-11-18.md#leaderboard-eval-set-v2-52-items-temp-0-1-sample"><img alt="Eval v2: 39/52" src="https://img.shields.io/badge/EVAL%20V2-39%2F52-0a0a0a.svg?style=for-the-badge&labelColor=000000" height="28"></a>
+  <a href="RESULTS-2026-11-18.md#leaderboard-eval-set-v2-52-items-temp-0-1-sample"><img alt="Eval v2: 39/52, clean 36/47" src="https://img.shields.io/badge/EVAL%20V2-39%2F52%20%C2%B7%20CLEAN%2036%2F47-0a0a0a.svg?style=for-the-badge&labelColor=000000" height="28"></a>
   <a href="https://tinker.thinkingmachines.ai/playground?mode=checkpoint&checkpoint=tinker%3A%2F%2F422c642a-f8cf-57e0-b94e-575e21fdb8a5%3Atrain%3A0%2Fsampler_weights%2Finkling-video-cutting-v3-grpo-20&reasoning_effort=none"><img alt="Try it in the Tinker Playground" src="https://img.shields.io/badge/TRY%20IT-Tinker%20Playground-0a0a0a.svg?style=for-the-badge&labelColor=000000" height="28"></a>
   <a href="docs/INTEGRATION.md"><img alt="Integration guide" src="https://img.shields.io/badge/DOCS-Integration%20Guide-0a0a0a.svg?style=for-the-badge&labelColor=000000" height="28"></a>
 </p>
