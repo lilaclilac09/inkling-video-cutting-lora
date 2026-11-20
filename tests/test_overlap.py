@@ -98,3 +98,16 @@ def test_rescore_cli_no_write_and_custom_clean_training(tmp_path, capsys):
         rescore_main(["--no-write", "--clean-training", str(tmp_path / "missing"), str(results)])
     assert error.value.code == 2
     assert "Missing input file" in capsys.readouterr().err
+
+
+@pytest.mark.parametrize("raw", ["", "truncated list: ["])
+def test_rescore_drops_stale_diagnostics(raw):
+    item = {"id": "multi-test", "format": "multi", "gold": {"clips": [clip()] * 3}}
+    old = {"id": item["id"], "format": "multi", "raw": raw, "style": "vlog",
+           "n_returned": 3, "slots_exact": 3, "correct": 1, "pred_clip": clip()}
+    result, = rescore([old], {item["id"]: item})
+    assert result == {
+        "id": item["id"], "format": "multi", "style": "vlog", "raw": raw,
+        "parsed_list": 0, "slots_exact": 0, "slots_file": 0, "correct": 0,
+    }
+    assert old["n_returned"] == 3

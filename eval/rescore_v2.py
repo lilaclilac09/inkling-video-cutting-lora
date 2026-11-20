@@ -22,7 +22,10 @@ from build_eval_set import load_jsonl  # noqa: E402
 
 def rescore(results, items):
     return [
-        dict(result, **score_item(items[result["id"]], result["raw"]))
+        dict(
+            {key: result[key] for key in ("id", "format", "pair", "style") if key in result},
+            **score_item(items[result["id"]], result["raw"]),
+        )
         for result in results
     ]
 
