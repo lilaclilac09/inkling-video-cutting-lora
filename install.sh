@@ -14,6 +14,7 @@ done
 echo "Installing…"
 uv sync --quiet
 echo "Checking…"
-uv run pytest -q >/dev/null && uv run python prepare.py --self-check >/dev/null
+uv run pytest -q >/dev/null
+uv run python prepare.py --self-check >/dev/null
 echo "Installed and verified."
 uv run python cutter.py welcome
