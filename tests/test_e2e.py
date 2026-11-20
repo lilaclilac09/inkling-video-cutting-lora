@@ -240,3 +240,12 @@ def test_subprocess_network_guard(cli, tmp_path):
         encoding="utf-8",
     )
     assert "E2E forbids network: socket.connect" in cli(script, code=1).stderr
+
+
+def test_builder_v1_without_trailing_newline_cli(cli, sources, tmp_path):
+    prefix = tmp_path / "test-v1-no-newline.jsonl"
+    prefix.write_bytes(sources["prefix"].read_bytes().rstrip(b"\n"))
+    built = tmp_path / "test-v2-no-newline.jsonl"
+    cli("eval/build_eval_set_v2.py", "--v1-path", prefix, "--out", built,
+        extra_env=sources["env"])
+    assert len(read_rows(built)) == 52

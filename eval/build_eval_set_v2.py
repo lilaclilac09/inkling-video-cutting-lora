@@ -370,6 +370,8 @@ def main(argv=None):
 
     with open(args.out, "wb") as f:
         f.write(v1_bytes)
+        if v1_bytes and not v1_bytes.endswith(b"\n"):
+            f.write(b"\n")
         for it in items[len(v1):]:
             f.write((json.dumps(it, ensure_ascii=False) + "\n").encode("utf-8"))
 
