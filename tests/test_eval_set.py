@@ -45,11 +45,11 @@ def test_gold_candidates_and_exact_training_exclusion():
                 assert key(gold) in candidates, item["id"]
 
 
-def test_v1_byte_identical_prefix_when_available():
+def test_v1_byte_identical_prefix():
     v1 = EVAL / "eval-set-v1.jsonl"
-    if not v1.exists():
-        pytest.skip("v1 source is not included in this checkout; byte identity is unverifiable")
-    assert (EVAL / "eval-set-v2.jsonl").read_bytes().startswith(v1.read_bytes())
+    assert v1.read_bytes() == b"".join(
+        (EVAL / "eval-set-v2.jsonl").read_bytes().splitlines(keepends=True)[:26])
+    assert Counter(item["format"] for item in read_rows(v1)) == {"mc": 11, "sft": 11, "trap": 4}
 
 
 @pytest.mark.parametrize("path", sorted(

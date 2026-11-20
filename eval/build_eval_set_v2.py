@@ -36,6 +36,7 @@ import json
 import random
 import sys
 import os
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_eval_set import (  # noqa: E402
@@ -169,7 +170,8 @@ def main():
         return " / ".join(parts) if parts else "(no shot description)"
 
     # --- v1 items, copied verbatim.
-    v1 = [json.loads(l) for l in open(V1_PATH, encoding="utf-8") if l.strip()]
+    v1_bytes = Path(V1_PATH).read_bytes()
+    v1 = [json.loads(l) for l in v1_bytes.splitlines() if l.strip()]
     items = list(v1)
     print(f"v1 items copied: {len(v1)}")
 
@@ -361,9 +363,10 @@ def main():
         })
     print(f"multi items: 4")
 
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
-        for it in items:
-            f.write(json.dumps(it, ensure_ascii=False) + "\n")
+    with open(OUT_PATH, "wb") as f:
+        f.write(v1_bytes)
+        for it in items[len(v1):]:
+            f.write((json.dumps(it, ensure_ascii=False) + "\n").encode("utf-8"))
 
     from collections import Counter
     print(Counter(it["format"] for it in items), "items ->", OUT_PATH)
