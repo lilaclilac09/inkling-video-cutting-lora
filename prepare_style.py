@@ -101,7 +101,7 @@ def validate_pick(row, number, style, brief):
         selected = cutter.resolve(answer, request)
         clips = [{key: clip[key] for key in ("file", "start", "end")} for clip in selected]
         if not clips:
-            fmt, gold, answer = "trap", {"letter": "E", "clip": None}, "None"
+            fmt, gold, answer = "trap", {"letter": "NONE", "clip": None}, "None"
         elif len(beats) > 1:
             fmt, gold = "multi", {"clips": clips}
             answer = json.dumps(clips, ensure_ascii=False)

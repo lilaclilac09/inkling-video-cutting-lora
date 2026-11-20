@@ -85,6 +85,23 @@ def test_multi_answers_and_refusal(as_text):
     assert result["format"] == "trap" and result["answer"] == "None"
 
 
+@pytest.mark.parametrize("beats", [0, 1, 2, 3])
+def test_custom_refusal_requires_none_not_a_candidate(beats):
+    row = pick(beats=beats)
+    row["answer"] = None
+    result = style.validate_pick(row, 1, "my-calm", BRIEF)
+    assert result["gold"] == {"letter": "NONE", "clip": None}
+    assert score_item(result, "None")["correct"] == 1
+    assert score_item(result, "")["correct"] == 0
+    assert score_item(result, "E")["correct"] == 0
+    for index, clip in enumerate(row["request"]["candidates"]):
+        letter = chr(65 + index)
+        answer = f"{letter}: {clip['file']} {clip['start']}-{clip['end']}"
+        assert score_item(result, answer)["correct"] == 0
+        assert score_item(result, json.dumps(clip))["correct"] == 0
+        assert score_item(result, "None " + answer)["correct"] == 0
+
+
 @pytest.mark.parametrize("answer, message", [
     ("E", "no candidate letter"),
     ("B: invented.MP4 0:01-0:07", "disagree"),
