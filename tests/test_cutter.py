@@ -41,6 +41,8 @@ def test_letter_and_named_window_must_agree():
         "C: DJI_20260719101336_0037_D.MP4 0:01.0-0:07.5",
         "C: DJI_20260719101336_0037_D.MP4 0:01-0:07.9",
         "C: DJI_20260719101632_0047_D.MP4 0:01-0:07",
+        "C: invented.mp4 0:01-0:07",
+        "C: old_DJI_20260719101336_0037_D.MP4 0:01-0:07",
     ],
 )
 def test_fractional_or_wrong_file_windows_are_checked(answer):

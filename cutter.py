@@ -124,9 +124,12 @@ def resolve(answer: str, request: dict) -> list[dict]:
     chosen = candidates[LETTERS.index(letter)]
     timestamp = r"\d+:\d{2}(?:\.\d+)?"
     window = re.search(rf"({timestamp})\s*-\s*({timestamp})", text)
-    named_files = {c["file"] for c in candidates if c["file"] in text}
+    named_file = ""
+    if window:
+        after_letter = re.search(rf"\b{letter}\b", text).end()
+        named_file = text[after_letter : window.start()].strip(" \t:.)-")
     clip = {
-        "file": chosen["file"] if not named_files or chosen["file"] in named_files else None,
+        "file": named_file or chosen["file"],
         "start": window.group(1) if window else chosen["start"],
         "end": window.group(2) if window else chosen["end"],
     }
