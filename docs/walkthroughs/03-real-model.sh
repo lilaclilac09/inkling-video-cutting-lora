@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Walkthrough 3: point the pipeline at the real model on Tinker (shown, not run: sampling is paid).
+source "$(dirname "$0")/lib.sh"
+say "1. Install the training/sampling extras (tinker SDK + renderers)"
+run "uv sync --extra train 2>&1 | tail -n 3"
+say "2. The scripts refuse to start without an explicit API key"
+run "env -u TINKER_API_KEY uv run python eval/run_eval.py --model base --out /tmp/x.json"
+say "3. Export your key (from the Tinker console); never commit it"
+run "echo 'export TINKER_API_KEY=tml-...   # in your shell, not in the repo'"
+say "4. The winner checkpoint to sample from"
+run "WINNER=\$(grep -m1 -o 'tinker://[^\`]*grpo-20' RESULTS-2026-11-18.md); echo \$WINNER"
+say "5. Score any checkpoint on the fixed 52-item eval (paid sampling, temp 0):"
+run "echo uv run python eval/run_eval.py --model custom --model-path \"\$WINNER\" --out eval/v2-mine.json"
+say "6. In your app: prompt = cutter.build_prompt(request); answer = sample(prompt); clips = cutter.resolve(answer, request)"
+run "sed -n '/^def resolve/,/^    text/p' cutter.py"
