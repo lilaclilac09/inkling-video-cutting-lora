@@ -16,6 +16,7 @@ Row shapes:
   {"kind": "clip", ...round-1 row...}      -> long SFT prompt, clip JSON answer
   {"kind": "refusal", "prompt": ..., "answer": "None", ...} -> mc trap prompt, "None"
 """
+import argparse
 import json
 import random
 import re
@@ -45,7 +46,11 @@ REFUSALS = [
 ]
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--eval-path", default=EVAL_PATH)
+    parser.add_argument("--out", default=OUT_PATH)
+    args = parser.parse_args(argv)
     train = load_jsonl(TRAIN_PATH)
     shots = load_jsonl(SHOT_PATH)
     picks = load_jsonl(PICKS_PATH)
@@ -68,7 +73,7 @@ def main():
 
     OPT_RE = re.compile(r"[A-H]\. (\S+\.MP4) (\d+:\d+(?:\.\d+)?)-(\d+:\d+(?:\.\d+)?):")
     eval_windows = set()
-    for line in open(EVAL_PATH, encoding="utf-8"):
+    for line in open(args.eval_path, encoding="utf-8"):
         if line.strip():
             it = json.loads(line)
             for m in OPT_RE.finditer(it["prompt"]):
@@ -140,11 +145,11 @@ def main():
             "evidence": "zero mentions in 1411 shot descriptions, 20 picks, 27 training rows",
         })
 
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    with open(args.out, "w", encoding="utf-8") as f:
         for row in rows:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
     from collections import Counter
-    print(Counter(r["kind"] for r in rows), "rows ->", OUT_PATH)
+    print(Counter(r["kind"] for r in rows), "rows ->", args.out)
 
 
 if __name__ == "__main__":

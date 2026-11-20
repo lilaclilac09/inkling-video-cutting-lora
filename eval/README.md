@@ -68,3 +68,12 @@ file, any model). Scorer: `scoring.py` (shared) + `rescore_v2.py`.
 Results: `v2-base.json`, `v2-v1.json`, `v2-v2.json` (re-scored copies alongside).
 
 Template: `../STYLE_TEMPLATE.md` — the prompt shape with `style` as a parameter.
+
+## My offline end-to-end check
+
+I run `uv run pytest tests/test_e2e.py` for CPU-only subprocess checks of the
+builders, overlap audit, saved-result rescoring and contract CLI. Synthetic
+sources and outputs stay in pytest's temporary directory, never in my real
+eval or training data; subprocesses block network access and model SDK imports.
+Builder `--out`, `--v1-path` (eval builder) and `--eval-path` (training-data
+builders) flags let me select isolated paths without changing defaults.

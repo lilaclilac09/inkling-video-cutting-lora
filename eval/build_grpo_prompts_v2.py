@@ -16,6 +16,7 @@ Anti-leakage: golds and distractors are all training-example clips (never
 Tier A eval golds, never eval windows). Same hand-picked style golds as
 sweep 1 (STYLE_ROWS in build_grpo_prompts.py).
 """
+import argparse
 import json
 import random
 import sys
@@ -36,7 +37,11 @@ MISSING_MOMENTS = ["guitar", "piano", "rain", "group photo"]
 VLOG_ROWS = [0, 1, 4, 6, 7, 9, 11, 13, 15, 19, 24]  # 11 distinct-file training rows
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--eval-path", default=EVAL_PATH)
+    parser.add_argument("--out", default=OUT_PATH)
+    args = parser.parse_args(argv)
     train = load_jsonl(TRAIN_PATH)
     shots = load_jsonl(SHOT_PATH)
 
@@ -64,7 +69,7 @@ def main():
     pick_ranges = [(p["clip"]["file"], parse_ts(p["clip"]["start"]), parse_ts(p["clip"]["end"])) for p in picks]
     OPT_RE = re.compile(r"[A-H]\. (\S+\.MP4) (\d+:\d+(?:\.\d+)?)-(\d+:\d+(?:\.\d+)?):")
     eval_windows = set()
-    for line in open(EVAL_PATH, encoding="utf-8"):
+    for line in open(args.eval_path, encoding="utf-8"):
         if line.strip():
             it = json.loads(line)
             for m in OPT_RE.finditer(it["prompt"]):
@@ -194,12 +199,12 @@ def main():
                 "gold": {"letter": "E", "clip": None},
             })
 
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    with open(args.out, "w", encoding="utf-8") as f:
         for it in items:
             f.write(json.dumps(it, ensure_ascii=False) + "\n")
 
     from collections import Counter
-    print(Counter(it["format"] for it in items), "items ->", OUT_PATH)
+    print(Counter(it["format"] for it in items), "items ->", args.out)
 
 
 if __name__ == "__main__":
