@@ -24,6 +24,43 @@ def test_prompt_matches_the_eval_prompt_byte_for_byte(name, item_id):
     assert cutter.build_prompt(request(name)) == EVAL[item_id]["prompt"]
 
 
+@pytest.mark.parametrize("fields", [
+    {}, {"style": None}, {"style": ""}, {"style": " "}, {"style": "Bad Style"},
+    {"style": "my_style"}, {"style": "-calm"}, {"style": "calm-"},
+    {"style": ["calm"]}, {"style": 42},
+])
+@pytest.mark.parametrize("brief_field", [None, "style_brief", "style_description"])
+def test_request_requires_a_style_slug(tmp_path, fields, brief_field):
+    req = request("request-single.json")
+    del req["style"]
+    req.update(fields)
+    if brief_field:
+        req[brief_field] = "Quiet human moments."
+    path = tmp_path / "request.json"
+    path.write_text(json.dumps(req), encoding="utf-8")
+    with pytest.raises(cutter.ResolveError, match="style must be a non-empty lowercase slug"):
+        cutter.load_request(path)
+
+
+@pytest.mark.parametrize("brief_field", ["style_brief", "style_description"])
+def test_custom_style_slug_with_brief_loads_and_builds(tmp_path, brief_field):
+    req = request("request-single.json")
+    req.update(style="my-calm-recap")
+    req[brief_field] = "Quiet human moments."
+    path = tmp_path / "request.json"
+    path.write_text(json.dumps(req), encoding="utf-8")
+    assert "Style: my-calm-recap — Quiet human moments." in cutter.build_prompt(cutter.load_request(path))
+
+
+@pytest.mark.parametrize("style", ["fresh", "my-calm-recap"])
+def test_explicit_brief_takes_precedence_over_description(tmp_path, style):
+    req = request("request-single.json")
+    req.update(style=style, style_brief="My new brief.", style_description="My old description.")
+    path = tmp_path / "request.json"
+    path.write_text(json.dumps(req), encoding="utf-8")
+    assert f"Style: {style} — My new brief." in cutter.build_prompt(cutter.load_request(path))
+
+
 def test_single_pick_resolves_the_letter():
     gold = EVAL["style-1-fresh"]["gold"]["clip"]
     clips = cutter.resolve("C: DJI_20260719101336_0037_D.MP4 0:01-0:07", request("request-single.json"))

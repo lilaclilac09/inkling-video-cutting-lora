@@ -249,3 +249,104 @@ def test_builder_v1_without_trailing_newline_cli(cli, sources, tmp_path):
     cli("eval/build_eval_set_v2.py", "--v1-path", prefix, "--out", built,
         extra_env=sources["env"])
     assert len(read_rows(built)) == 52
+
+
+def custom_picks():
+    rows = []
+    for index in range(6):
+        candidates = [
+            {"file": f"SYNTHETIC_CUSTOM_{index}_{i}.MP4", "start": "0:01", "end": "0:07",
+             "description": "SYNTHETIC test only, not real footage"}
+            for i in range(8 if index == 1 else 4)
+        ]
+        beats = ([{"title": f"SYNTHETIC beat {i}", "why": "TEST ONLY"} for i in range(3)]
+                 if index == 1 else [])
+        answer = ([{key: c[key] for key in ("file", "start", "end")} for c in candidates[:3]]
+                  if beats else ("B" if index != 2 else None))
+        rows.append({"synthetic": True, "request": {
+            "event": f"SYNTHETIC custom event {index}", "date": "TEST ONLY",
+            "beats": beats, "candidates": candidates,
+        }, "answer": answer})
+    return rows
+
+
+def test_custom_style_prepare_to_sft_and_held_out_offline_cli(cli, tmp_path):
+    picks = tmp_path / "synthetic-picks.jsonl"
+    write_rows(picks, custom_picks())
+    output = tmp_path / "my custom style"
+    args = [picks, "--style", "my-calm", "--brief", "Quiet human moments.", "--seed", "7"]
+    result = cli("prepare_style.py", *args, "--out", output)
+    assert "WARNING: only 6 picks; recommended minimum is 20" in result.stdout
+    assert "Prepared 6 picks: 4 train, 2 held-out" in result.stdout
+    assert "Paid Tinker command (NOT RUN" in result.stdout
+    manifest = json.loads((output / "manifest.json").read_text())
+    assert manifest["training_executed"] is False
+    assert manifest["held_out_overlap_ids"] == []
+    assert manifest["paid_training_command"] in result.stdout
+    train = read_rows(output / "train.jsonl")
+    held = read_rows(output / "held-out.jsonl")
+    assert len(train) == 4 and len(held) == 2
+    assert all(row["synthetic"] and row["kind"] == "prompt" for row in train + held)
+    assert all("Style: my-calm — Quiet human moments." in row["prompt"] for row in train + held)
+    assert {row["format"] for row in train + held} == {"mc", "multi", "trap"}
+    check = cli("eval/check_overlap.py", "--eval-path", output / "held-out.jsonl",
+                output / "train.jsonl")
+    assert "0/2 eval items overlap" in check.stdout
+    second = tmp_path / "second"
+    result = cli("prepare_style.py", *args, "--out", second, "--min-picks", "1")
+    assert "recommended minimum" not in result.stdout
+    for name in ("train.jsonl", "held-out.jsonl"):
+        assert (second / name).read_bytes() == (output / name).read_bytes()
+    checker = tmp_path / "check-consumer.py"
+    checker.write_text(
+        "import json, runpy, sys\n"
+        f"sys.path.insert(0, {str(ROOT)!r})\n"
+        "from eval.scoring import score_item\n"
+        f"consumer = runpy.run_path({str(ROOT / 'inkling-video-sft-v3.py')!r})\n"
+        f"paths = {[str(output / name) for name in ('train.jsonl', 'held-out.jsonl')]!r}\n"
+        "for path in paths:\n"
+        "    for row in consumer['load_rows'](path):\n"
+        "        assert consumer['build_example'](row) == (row['prompt'], row['answer'])\n"
+        "        assert score_item(row, row['answer'])['correct'] == 1\n"
+        "assert 'tinker' not in sys.modules\n"
+        "print('SFT consumer and held-out scoring: pass')\n",
+        encoding="utf-8",
+    )
+    assert "SFT consumer and held-out scoring: pass" in cli(checker).stdout
+    assert "--data" in cli("run_sft_v3.py", "--help").stdout
+    before = snapshot(output)
+    result = cli("prepare_style.py", *args, "--out", output, code=2)
+    assert "new or empty directory" in result.stderr
+    assert snapshot(output) == before
+
+
+@pytest.mark.parametrize("contents, error", [
+    ("", "no picks"), ("\n{broken", "row 2: invalid JSON"),
+    (json.dumps(dict(custom_picks()[0], answer="E")), "row 1: no candidate letter"),
+    (json.dumps(dict(custom_picks()[0], answer="B: invented.MP4 0:01-0:07")), "row 1: letter B"),
+    (json.dumps(custom_picks()[0]), "two independent candidate-file groups"),
+])
+def test_custom_style_errors_do_not_write_output_cli(cli, tmp_path, contents, error):
+    picks = tmp_path / "bad-picks.jsonl"
+    picks.write_text(contents, encoding="utf-8")
+    output = tmp_path / "not-created"
+    result = cli("prepare_style.py", picks, "--style", "my-calm", "--brief", "Quiet",
+                 "--out", output, code=2)
+    assert error in result.stderr
+    assert not output.exists()
+
+
+@pytest.mark.parametrize("extra, error", [
+    (["--style", "Bad Style"], "lowercase slug"),
+    (["--brief", "two\nlines"], "single-line"),
+    (["--min-picks", "-1"], "nonnegative"),
+    (["--held-out-fraction", "1"], "between 0 and 1"),
+])
+def test_custom_style_argument_errors_cli(cli, tmp_path, extra, error):
+    picks = tmp_path / "picks.jsonl"
+    write_rows(picks, custom_picks())
+    output = tmp_path / "not-created"
+    result = cli("prepare_style.py", picks, "--style", "my-calm", "--brief", "Quiet",
+                 "--out", output, *extra, code=2)
+    assert error in result.stderr
+    assert not output.exists()

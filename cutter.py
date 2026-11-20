@@ -37,9 +37,12 @@ class ResolveError(ValueError):
 
 def load_request(path: str | Path) -> dict:
     request = json.loads(Path(path).read_text(encoding="utf-8"))
-    if request.get("style") not in STYLES and not request.get("style_description"):
+    style = request.get("style")
+    if not isinstance(style, str) or not re.fullmatch(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*", style):
+        raise ResolveError("style must be a non-empty lowercase slug, e.g. my-calm-recap")
+    if style not in STYLES and not (request.get("style_brief") or request.get("style_description")):
         raise ResolveError(
-            f"style must be one of {', '.join(STYLES)}, or set style_description for your own"
+            f"style must be one of {', '.join(STYLES)}, or supply style_brief or style_description"
         )
     beats = request.setdefault("beats", [])
     candidates = request.get("candidates") or []
@@ -63,9 +66,10 @@ def _candidate_lines(candidates: list[dict]) -> str:
 
 def build_prompt(request: dict) -> str:
     style = request["style"]
+    brief = request.get("style_brief") or STYLES.get(style) or request["style_description"]
     head = (
         f"You are cutting the {request['event']} recap ({request['date']}) into short clips.\n\n"
-        f"Style: {style} — {STYLES.get(style) or request['style_description']}\n\n"
+        f"Style: {style} — {brief}\n\n"
     )
     beats = request["beats"]
     candidates = _candidate_lines(request["candidates"])

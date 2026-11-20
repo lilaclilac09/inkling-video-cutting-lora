@@ -132,7 +132,10 @@ def score_item(item, text):
         clip = extract_clip_json(text)
         out["letter"] = letter
         out["hallucinated_clip"] = 1 if clip is not None else 0
-        out["correct"] = 1 if (letter in ("E", "NONE") and clip is None) else 0
+        if gold.get("letter") == "NONE":
+            out["correct"] = int(text.strip().lower() == "none")
+        else:
+            out["correct"] = 1 if (letter in ("E", "NONE") and clip is None) else 0
     elif fmt == "sft":
         clip = extract_clip_json(text)
         out["parsed_json"] = 1 if clip is not None else 0

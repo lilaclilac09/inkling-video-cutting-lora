@@ -26,6 +26,16 @@ def test_trap(answer, correct, hallucinated):
     assert (result["correct"], result["hallucinated_clip"]) == (correct, hallucinated)
 
 
+@pytest.mark.parametrize("answer, correct", [
+    ("None", 1), (" none\n", 1), ("E", 0), ("A", 0), ("", 0),
+    ("E: test.MP4 0:01-0:07", 0), ("None: test.MP4 0:01-0:07", 0),
+    ("None " + json.dumps(CLIP), 0), (json.dumps([CLIP]), 0),
+])
+def test_trap_with_none_gold_requires_only_refusal(answer, correct):
+    item = {"format": "trap", "gold": {"letter": "NONE", "clip": None}}
+    assert score_item(item, answer)["correct"] == correct
+
+
 @pytest.mark.parametrize("clip,correct,file_match,near_miss", [
     (CLIP, 1, 1, 1),
     (dict(CLIP, start="0:02"), 0, 1, 1),

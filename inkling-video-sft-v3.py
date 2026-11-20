@@ -26,9 +26,10 @@ import os
 
 DATA_PATH = os.environ.get("SFT_V3_DATA_PATH", "eval/sft-v3-data.jsonl")
 BASE_MODEL = "thinkingmachines/Inkling-2-Small"
-V2_STATE = "tinker://0059270a-eeab-5add-bf67-b9f39ee0a5cb:train:0/weights/inkling-video-cutting-v2-state"
-CHECKPOINT_NAME = "inkling-video-cutting-v3"
-STATE_NAME = "inkling-video-cutting-v3-state"
+V2_STATE = os.environ.get("SFT_V3_STATE_PATH", "tinker://0059270a-eeab-5add-bf67-b9f39ee0a5cb:train:0/weights/inkling-video-cutting-v2-state")
+FROM_BASE = os.environ.get("SFT_V3_FROM_BASE") == "1"
+CHECKPOINT_NAME = os.environ.get("SFT_V3_CHECKPOINT_NAME", "inkling-video-cutting-v3")
+STATE_NAME = CHECKPOINT_NAME + "-state"
 STEPS = 6
 LEARNING_RATE = 1e-4
 
@@ -57,7 +58,7 @@ def load_rows(path):
 
 
 def build_example(row):
-    if row["kind"] == "refusal":
+    if row["kind"] in ("prompt", "refusal"):
         return row["prompt"], row["answer"]
     prompt = (
         PLAYGROUND_PROMPT
@@ -77,9 +78,14 @@ async def main():
     import tinker
 
     service_client = tinker.ServiceClient(display_name="inkling-video-cutting-v3")
-    print(f"Resuming training from v2 state ...", flush=True)
-    training_client = await service_client.create_training_client_from_state(V2_STATE)
-    print("Training client resumed from v2 state.", flush=True)
+    if FROM_BASE:
+        print("Creating a fresh rank-16 LoRA from base ...", flush=True)
+        training_client = await service_client.create_lora_training_client(
+            base_model=BASE_MODEL, rank=16
+        )
+    else:
+        print(f"Resuming training from state {V2_STATE} ...", flush=True)
+        training_client = await service_client.create_training_client_from_state(V2_STATE)
 
     base_client = await service_client.create_sampling_client(base_model=BASE_MODEL)
 
